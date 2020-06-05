@@ -1,0 +1,1 @@
+create table `upload_source` ( `id` int(11) NOT NULL AUTO_INCREMENT, `upload_source_id` int(11) NOT NULL, `upload_source_description` varchar(30) DEFAULT NULL, PRIMARY KEY(`id`) );

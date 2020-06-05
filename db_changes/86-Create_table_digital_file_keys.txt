@@ -1,0 +1,1 @@
+create table `digital_file_keys` ( `id` int(11) NOT NULL AUTO_INCREMENT, `file_type` varchar(60),`file_extension` varchar(32), `file_size` int(11) NOT NULL, `date_created` int(11), `date_modified` int(11), `s3_key` varchar(32),`thumb_small` tinyint,`thumb_large` tinyint,`indexing_status` int(2), primary key(`id`));

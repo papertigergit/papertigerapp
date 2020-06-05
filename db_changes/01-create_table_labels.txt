@@ -1,0 +1,1 @@
+create table labels ( id int auto_increment, label_name varchar(255), label_color varchar(6), font_color varchar(6), label_notes varchar(255), label_owner_id int, label_org_id int, primary key(`id`));

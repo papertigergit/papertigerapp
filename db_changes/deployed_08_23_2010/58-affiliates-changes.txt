@@ -1,0 +1,43 @@
+
+CREATE TABLE IF NOT EXISTS `affiliate_levels` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL,
+  `percentage` decimal(2,2) NOT NULL,
+  `recurring` int(1) default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `affiliate_levels`
+--
+
+INSERT INTO `affiliate_levels` (`id`, `name`, `percentage`, `recurring`) VALUES
+(1, 'Affiliate', 0.15, 0),
+(2, 'Reseller', 0.30, 1),
+(3, 'Expert', 0.30, 1);
+
+CREATE TABLE IF NOT EXISTS `affiliate_payments` (
+  `id` int(11) NOT NULL auto_increment,
+  `affiliate_code` varchar(5) NOT NULL,
+  `date` int(11) NOT NULL,
+  `amount` decimal(5,2) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `affiliate_tracking` (
+  `id` int(11) NOT NULL auto_increment,
+  `is_active` tinyint(1) NOT NULL,
+  `organization_id` int(11) NOT NULL COMMENT 'Organization that signed up under the affiliate',
+  `affiliate_code` varchar(5) NOT NULL COMMENT 'The affiliate that referred the user with user_id',
+  `original_date` int(11) NOT NULL,
+  `start_date` int(11) NOT NULL,
+  `last_payment_date` int(11) NOT NULL,
+  `initial_payment_made` int(1) default '0',
+  `tier` int(1) NOT NULL default '0',
+  `tier_child` varchar(5) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `organization_id` (`organization_id`),
+  KEY `affiliate_code` (`affiliate_code`),
+  KEY `start_date` (`start_date`),
+  KEY `initial_payment_made` (`initial_payment_made`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

@@ -1,0 +1,1 @@
+alter table logs_items add `database_id` int(11) after slot_num;

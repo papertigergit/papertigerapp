@@ -1,0 +1,7 @@
+# Ignore configurations
+/application/config/braintree.php
+/application/config/database.php
+/application/config/config.php
+/application/config/email.php
+/application/config/billing.php
+/vendor

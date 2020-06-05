@@ -1,0 +1,1 @@
+ALTER TABLE  `packages` ADD  `active` TINYINT( 1 ) NOT NULL AFTER  `price`;

@@ -1,0 +1,173 @@
+@page { 
+	size: US-Letter landscape;
+	margin: 10pt;	
+}
+
+
+html {
+	background: #ececec;
+}
+
+#print_header {
+	background:  rgb(223, 230, 248);
+	border-bottom: solid 1px black;
+	padding: 10px 10px 10px 10px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 20px;
+}
+
+#print_header p {
+	width: 960px;
+	min-width: 960px;
+}
+
+#print_header input {
+ 	float: right;
+	display: inline;
+	margin-top: -20px;
+	margin-right: 15px;
+}
+
+#print_content {
+	background: white;
+	width: 900px;
+	min-height: 695px;
+	border: solid 1px black;
+	margin: 70px auto;
+	padding: 20px;
+}
+
+#reports_date {
+	float: right;
+	font-size: 10pt;
+	margin-top: 10px;
+}
+
+.sprite, input, img, li, #dashboard_link, select, #tr_nav{
+	display:none;
+}
+
+#db_name{
+	display:block;
+	font-size: 18pt;
+	font-weight: bold;
+	border-bottom: solid 6px black;
+	width: 100%;
+	margin-bottom: 20px;
+	padding-bottom: 5px;
+}
+
+.organization_name{
+	display:inline;
+	clear:both;
+	font-family: "Trebuchet MS";
+	font-size: 12pt;
+	color: gray;  
+}
+
+#header_bar_left {	
+	font-size: 24pt;
+	font-weight: bold;
+	padding-bottom: 4px;
+	border-bottom: solid 4px black;
+	font-family: "Trebuchet MS";
+}
+
+table{
+	border-spacing:0;
+	width: 100%;
+	margin: 0 0 30px 0;
+}
+
+div.table_header_bar_2 {
+	display: block;
+	margin-top: 15px;
+	font-weight: bold;
+	padding-bottom: 5px;
+	border-bottom: solid 1px black;
+	font-family: "Trebuchet MS";
+}
+
+th{
+	text-align:left;
+	border-top: none;
+	border-bottom:  solid 2px black;
+	color:black;
+	padding:4px;
+	font-family: "Trebuchet MS";
+	font-size: 9pt;		
+}
+
+th.header_itemNumber{
+	width: 30px;
+}
+
+th.header_itemName{
+	width: 150px;
+}
+
+/*
+th.header_itemKeywords{
+	width: 370px;
+}
+*/
+
+th.transferReport_date{
+	width: 90px;
+}
+
+th.header_itemActionDate{
+	width: 50px;
+}
+
+th.transferReport_checkbox{
+	width: 50px;
+	text-align: center;
+}
+
+th.transferReport_date_completed {
+	width: 80px;
+	text-align: center;
+}
+
+tr {
+	page-break-inside:avoid;
+	padding: 20px 0;
+	vertical-align: text-top;
+	font-family: Arial;
+	font-size: 10pt;	
+}
+
+td {
+	padding: 7px 5px;
+	border-bottom: solid 1px gray;
+	page-break-inside:avoid;
+	vertical-align: middle;
+}
+
+td.transferReport_checkbox, td.transferReport_date_completed {
+	text-align: center;
+}
+
+a{
+	color:black;
+	text-decoration:none;
+}
+
+div#report_checkbox {
+	height: 20px;
+	width: 20px;
+	display: block;
+	border: solid 1px black;
+	margin: 0 auto;	
+}
+
+div#report_date_completed {
+	height: 20px;
+	width: 60px;
+	display: block;
+	border-bottom: solid 1px black;
+	margin: 0 auto;	
+}

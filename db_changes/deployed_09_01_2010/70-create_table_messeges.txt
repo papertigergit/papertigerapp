@@ -1,0 +1,4 @@
+create table messeges ( id int auto_increment primary key, title text, body text, link text,active bool default null);
+alter table messeges drop column link;
+alter table messeges add column anchor text after body;
+alter table messeges add column text text after anchor;

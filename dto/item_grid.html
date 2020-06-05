@@ -1,0 +1,377 @@
+<!DOCTYPE html">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US">
+  <head>
+    <title>Digital Tiger - Let us do the work, you do the finding!</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+		<script src="jquery.qtip.min.js"></script>
+		<script src="item_grid.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="layout.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="jquery.qtip.min.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="item_grid.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="buttons.css" media="screen" />
+  </head>
+  <body>
+      <div id="header">
+        <h1>Digital Tiger</h1>
+      </div>
+      <div id="search">
+        <input class="search_box" type="text" value="Search..." />
+        <button class="clean-gray submit_search">Search Files</button>
+      </div>
+      <div class="col1">
+        <!-- Column 2 start -->
+        <div id="sidebar">
+          <ul id="navigation">
+            <li><a class="active" href="/all_files">All Files</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="/trash">Trash</a></li>
+            <li><a href="/processing">Processing (35)</a></li>
+          </ul>
+          <hr />
+          <ul id="labels">
+            <li><div class="label_color" style="background:black;"></div><a href="/labels/1">instructions</a></li>
+            <li><div class="label_color" style="background:purple;"></div><a href="/labels/2">paper tiger desktop</a></li>
+            <li><div class="label_color" style="background:orange;"></div><a href="/labels/3">software</a></li>
+            <li><div class="label_color" style="background:cyan;"></div><a href="/labels/4">filing system stuff</a></li>
+            <li><div class="label_color" style="background:brown;"></div><a href="/labels/5">software architect</a></li>
+            <li><div class="label_color" style="background:red;"></div><a href="/labels/6">mockups</a></li>
+            <li><div class="label_color" style="background:green;"></div><a href="/labels/instructions">psds</a></li>
+          </ul>
+          <hr />
+          <button id="create_new_label" class="clean-gray">Create New Label</button>
+        </div>
+        <!-- Column 2 end -->
+      </div>
+
+      <div class="col2">
+        <!-- Column 1 start -->
+        <div id="content">
+          <div style="display:none" id="search_options">
+            <h2>Search Options</h2>
+          </div>
+
+          <div class="files_display" id="all_files">
+
+            <div id="files_display_header" class="border_bottom">
+              <h2>All Files</h2>
+            </div>
+
+            <div class="files_display_tools border_bottom">
+              <div class="file_action_tools">
+                <button style="margin-left:0px;padding-right:5px;padding-left:5px; padding-top:6px;" class="clean-gray"><img class="checkbox_dropdown_img" src="img/checkbox.png"/> &#9662;</button>
+                <button style="margin-left:0px;" class="clean-gray">Archive</button>
+                <button class="clean-gray">Edit</button>
+                <button class="clean-gray">Delete</button>
+                <button style="margin-left:0px;" class="clean-gray">Download</button>
+                <button style="margin-left:0px;" class="clean-gray">Labels &#9662;</button>
+              </div>
+              <div class="pagination">
+                <span class="pages"><strong>1-30</strong> of <strong>95</strong></span>
+                <a href="next_page" class="pagination_link">Next ›</a>
+                <a href="last_page" class="pagination_link">Last »</a>
+              </div>
+            </div> <!-- files_display_tools-->
+
+            <div id="files">
+
+              <div class="file" id="1">
+                <input type="checkbox" class="file_select" />
+								<img class="file_thumbnail" rel="http://test.thepapertiger.com/thumbnails/admin_dev.png" src="thumbnails/small/admin_dev.png" />
+								<div class="file_attributes">
+									<a href="/files/1" class="file_filename">Paper Tiger Tutorial.doc</a>
+									<span class="file_path">/documents/user guides/paper tiger/</span>
+									<div class="file_tags">
+										<span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+										<span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+										<span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+										<span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+										<span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+										<span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+										<span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+										<span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+										<span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+										<span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+										<span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+										<span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+									</div>
+								</div>
+								<div class="file_information">
+									<span class="file_date_uploaded">12:32 pm</span>
+								</div>
+
+								<div class="single_file_action_tools">
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_archive.png" alt="Archive File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_edit.png" alt="Edit File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_delete.png" alt="Delete File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_download.png" alt="Download File" />
+									</div>
+                </div> <!--single_file_action_tools-->
+              </div> <!--file-->
+              <div class="file" id="1">
+                <input type="checkbox" class="file_select" />
+                <img class="file_thumbnail" rel="http://dl.dropbox.com/u/118650/img/dto/admin_dev.png" src="thumbnails/small/mise_en_place.png" />
+                <div class="file_attributes">
+                  <a href="/files/1" class="file_filename">Anne McGurty Training.pdf</a>
+                  <span class="file_path">/documents/organizing/</span>
+                  <div class="file_tags">
+                    <span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+                    <span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+                    <span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+                  </div>
+                </div>
+                <div class="file_information">
+                  <span class="file_date_uploaded">9:32 am</span>
+                  <!--<span class="file_user_source">Fred Holgado</span>-->
+                  <!--<span class="file_device_source">Fred's iMac</span>-->
+                </div>
+								<div class="single_file_action_tools">
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_archive.png" alt="Archive File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_edit.png" alt="Edit File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_delete.png" alt="Delete File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_download.png" alt="Download File" />
+									</div>
+                </div> <!--single_file_action_tools-->
+                <div class="clear"></div>
+              </div> <!--file-->
+              <div class="file" id="1">
+                <input type="checkbox" class="file_select" />
+                <img class="file_thumbnail" rel="thumbnails/admin_dev.png" src="thumbnails/small/admin_dev.png" />
+                <div class="file_attributes">
+                  <a href="/files/1" class="file_filename">Paper Tiger Tutorial.doc</a>
+                  <span class="file_path">/documents/user guides/paper tiger/</span>
+                  <div class="file_tags">
+                    <span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+                    <span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+                    <span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+                    <span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+                    <span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+                    <span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+                    <span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+                    <span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+                    <span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+                  </div>
+                </div>
+                <div class="file_information">
+                  <span class="file_date_uploaded">Mar 31</span>
+                  <span class="file_day_uploaded">Sunday</span>
+                  <!--<span class="file_user_source">Fred Holgado</span>-->
+                  <!--<span class="file_device_source">Fred's iMac</span>-->
+                </div>
+								<div class="single_file_action_tools">
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_archive.png" alt="Archive File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_edit.png" alt="Edit File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_delete.png" alt="Delete File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_download.png" alt="Download File" />
+									</div>
+                </div> <!--single_file_action_tools-->
+                <div class="clear"></div>
+              </div> <!--file-->
+              <div class="file" id="1">
+                <input type="checkbox" class="file_select" />
+                <img class="file_thumbnail" rel="thumbnails/admin_dev.png" src="thumbnails/small/admin_dev.png" />
+                <div class="file_attributes">
+                  <a href="/files/1" class="file_filename">Paper Tiger Tutorial.doc</a>
+                  <span class="file_path">/documents/user guides/paper tiger/</span>
+                  <div class="file_tags">
+                    <span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+                    <span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+                    <span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+                    <span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+                    <span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+                    <span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+                    <span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+                    <span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+                    <span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+                  </div>
+                </div>
+                <div class="file_information">
+                  <span class="file_date_uploaded">Mar 31</span>
+                  <span class="file_day_uploaded">Sunday</span>
+                  <!--<span class="file_user_source">Fred Holgado</span>-->
+                  <!--<span class="file_device_source">Fred's iMac</span>-->
+                </div>
+								<div class="single_file_action_tools">
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_archive.png" alt="Archive File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_edit.png" alt="Edit File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_delete.png" alt="Delete File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_download.png" alt="Download File" />
+									</div>
+                </div> <!--single_file_action_tools-->
+                <div class="clear"></div>
+              </div> <!--file-->
+              <div class="file" id="1">
+                <input type="checkbox" class="file_select" />
+                <img class="file_thumbnail" rel="thumbnails/admin_dev.png" src="thumbnails/small/admin_dev.png" />
+                <div class="file_attributes">
+                  <a href="/files/1" class="file_filename">Paper Tiger Tutorial.doc</a>
+                  <span class="file_path">/documents/user guides/paper tiger/</span>
+                  <div class="file_tags">
+                    <span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+                    <span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+                    <span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+                    <span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+                    <span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+                    <span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+                    <span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+                    <span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+                    <span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+                  </div>
+                </div>
+                <div class="file_information">
+                  <span class="file_date_uploaded">Mar 30</span>
+                  <span class="file_day_uploaded">Saturday</span>
+                  <!--<span class="file_user_source">Fred Holgado</span>-->
+                  <!--<span class="file_device_source">Fred's iMac</span>-->
+                </div>
+								<div class="single_file_action_tools">
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_archive.png" alt="Archive File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_edit.png" alt="Edit File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_delete.png" alt="Delete File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_download.png" alt="Download File" />
+									</div>
+                </div> <!--single_file_action_tools-->
+                <div class="clear"></div>
+              </div> <!--file-->
+              <div class="file" id="1">
+                <input type="checkbox" class="file_select" />
+                <img class="file_thumbnail" rel="thumbnails/admin_dev.png" src="thumbnails/small/admin_dev.png" />
+                <div class="file_attributes">
+                  <a href="/files/1" class="file_filename">Paper Tiger Tutorial.doc</a>
+                  <span class="file_path">/documents/user guides/paper tiger/</span>
+                  <div class="file_tags">
+                    <span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:teal !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+                    <span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+                    <span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+                    <span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+                    <span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+                    <span class="file_tag" style="background:bisque !important" id="2">paper tiger desktop</span>
+                    <span class="file_tag" style="background:darkhaki !important; color:white;" id="3">software</span>
+                    <span class="file_tag" style="background:cornsilk !important" id="4">software architect</span>
+                    <span class="file_tag" style="background:lightgreen !important" id="3">software</span>
+                    <span class="file_tag" style="background:orangered !important; color:white" id="1">instructions</span>
+                  </div>
+                </div>
+                <div class="file_information">
+                  <span class="file_date_uploaded">Mar 29</span>
+                  <span class="file_day_uploaded">Friday</span>
+                  <!--<span class="file_user_source">Fred Holgado</span>-->
+                  <!--<span class="file_device_source">Fred's iMac</span>-->
+                </div>
+								<div class="single_file_action_tools">
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_archive.png" alt="Archive File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_edit.png" alt="Edit File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_delete.png" alt="Delete File" />
+									</div>
+									<div class="tool">
+										<span class="tool_label"></span>
+										<img src="img/file_download.png" alt="Download File" />
+									</div>
+                </div> <!--single_file_action_tools-->
+                <div class="clear"></div>
+              </div> <!--file-->
+            </div> <!--files-->
+
+            <div class="files_display_tools border_top">
+              <div class="file_action_tools">
+                <button style="margin-left:0px;" class="clean-gray">Archive</button>
+                <button class="clean-gray">Edit</button>
+                <button class="clean-gray">Delete</button>
+                <button style="margin-left:0px;" class="clean-gray">Download</button>
+                <button style="margin-left:0px;" class="clean-gray">Labels &#9662;</button>
+              </div>
+              <div class="pagination">
+                <span class="pages">1-30 of 95</span>
+                <a href="next_page" class="pagination_link">next ></a>
+                <a href="last_page" class="pagination_link">last >></a>
+              </div>
+            </div> <!-- files_display_tools-->
+
+          </div> <!--all files-->
+
+        </div>
+        <!-- Column 1 end -->
+      </div>
+      <div id="footer">
+        <!-- FOOTER STUFF HERE!-->
+      </div>
+  </body>
+</html>

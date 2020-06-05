@@ -1,0 +1,1 @@
+create table file_labels ( id int auto_increment, label_id int, file_id int, primary key(`id`), key `label_id` (`label_id`), key `file_id` (`file_id`), constraint `file_labels_fk1` foreign key (`label_id`) references `labels`(`id`) on delete cascade, constraint `file_labels_fk2` foreign key (`file_id`) references `digital_files`(`id`) on delete cascade);

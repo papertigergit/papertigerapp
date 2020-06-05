@@ -1,0 +1,15 @@
+alter table failed_logins add constraint `failed_logins_fk_1` foreign key (`email_address`) references `users`(`email_address`);
+alter table imports_hash add constraint `imports_hash_fk_1` foreign key (`database_id`) references `databases`(`id`);
+alter table logs_categories add constraint `categories_fk_1` foreign key (`category_id`) references `categories`(`id`);
+alter table logs_categories add constraint `categories_fk_2` foreign key (`by_who`) references `users`(`id`);
+alter table logs_categories add constraint `categories_fk_3` foreign key (`database_id`) references `database`(`id`);
+alter table logs_categories add constraint `categories_fk_4` foreign key (`organization_id`) references `organizations`(`id`);
+alter table logs_databases add constraint `logs_databases_fk_1` foreign key (`database_id`) references `databases`(`id`);
+alter table logs_databases add constraint `logs_databases_fk_2` foreign key (`by_who_id`) references `users`(`id`);
+alter table logs_databases add constraint `logs_databases_fk_3` foreign key (`organization_id`) references `organzations`(`id`);
+alter table logs_items add constraint `logs_items_fk_1` foreign key (`item_id`) references `items`(`id`);
+alter table logs_items add constraint `logs_items_fk_2` foreign key (`by_who`) references `users`(`id`);
+alter table logs_items add constraint `logs_items_fk_3` foreign key (`category_id`) references `categories`(`id`);
+alter table logs_items add constraint `logs_items_fk_4` foreign key (`location_id`) references `locations`(`id`);
+alter table logs_items add constraint `logs_items_fk_5` foreign key (`database_id`) references `databases`(`id`);
+alter table logs_items add constraint `logs_items_fk_6` foreign key (`organization_id`) references `organizations`(`id`);

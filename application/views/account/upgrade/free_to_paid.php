@@ -1,0 +1,1 @@
+We're sorry, but downgrading from a paid to free plan is not possible. Please contact Paper Tiger to seek options.

@@ -1,0 +1,1 @@
+update organizations set subscription_id=0 where subscription_id=""

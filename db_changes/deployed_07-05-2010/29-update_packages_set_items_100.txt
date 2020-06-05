@@ -1,0 +1,1 @@
+update packages set max_items=100 where id=1;

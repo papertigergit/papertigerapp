@@ -1,0 +1,1 @@
+UPDATE `paper_tiger`.`packages` SET `name` = 'Pro' WHERE `packages`.`id` = 2 LIMIT 1; UPDATE `paper_tiger`.`packages` SET `name` = 'ProYearly' WHERE `packages`.`id` = 3 LIMIT 1;

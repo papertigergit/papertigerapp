@@ -1,0 +1,3 @@
+alter table locations add (last_edited_time int, last_edited_by int);
+alter table categories add (last_edited_time int, last_edited_by int);
+alter table items add (last_edited_time int, last_edited_by int);

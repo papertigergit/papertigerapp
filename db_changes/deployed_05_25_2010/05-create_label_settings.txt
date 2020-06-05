@@ -1,0 +1,2 @@
+create table label_settings ( label_id int primary key not null, label_name varchar(40) not null, left_margin int not null, top_margin int not null, right_margin int not null, font_size int not null);
+

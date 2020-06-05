@@ -1,0 +1,1 @@
+create table `authorized_devices` ( `id` int(11) auto_increment, user_id int(11), device_hash varchar(32), date_created int(11), date_last_access int(11), client_version varchar(4), os_string varchar(60), status tinyint, primary key(`id`));

@@ -1,0 +1,30 @@
+Time since upload - is newer than "mm/dd/yyyy"
+                  - is older than "mm/dd/yyyy"
+                  - is between "mm/dd/yyyy" and "mm/dd/yyyy"
+                  - is within one week
+                  - is within one month
+                  - is within one year
+
+User source - is from user "Fred Holgado"
+            - is not from user "Fred Holgado"
+
+Device Source - is from "Fred's Mac"
+              - is not from "Fred's Mac"
+
+File Extension  - is .pdf
+                - is not .pdf
+
+File Contents   - Contains at least one of the following words "monticello"
+                - Contains none of the following words "monticello"
+
+File Name - Contains at least one of the following words "monticello"
+          - Contains none of the following words "monticello"
+
+File Notes - Contains at least one of the following words "monticello"
+           - Contains none of the following words "monticello"
+
+Labels  - Contains at least one of the following "work"
+        - Contains none of the following "work"
+
+
+

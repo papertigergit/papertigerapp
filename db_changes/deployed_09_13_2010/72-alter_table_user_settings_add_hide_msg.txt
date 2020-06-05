@@ -1,0 +1,1 @@
+alter table user_settings add column hide_msg int after show_notes

@@ -1,0 +1,1 @@
+UPDATE `paper_tiger`.`packages` SET `groups` = '98' WHERE `packages`.`id` = 4 LIMIT 1;

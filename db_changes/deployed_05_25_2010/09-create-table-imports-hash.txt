@@ -1,0 +1,1 @@
+create table imports_hash (id int primary key auto_increment, database_id int, md5sum varchar(60), import_status int)

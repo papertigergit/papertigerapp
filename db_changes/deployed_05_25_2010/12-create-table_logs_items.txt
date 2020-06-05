@@ -1,0 +1,18 @@
+CREATE TABLE `logs_items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_id` int(11) DEFAULT NULL,
+  `action` int(11) DEFAULT NULL,
+  `action_time` int(11) DEFAULT NULL,
+  `by_who` int(11) DEFAULT NULL,
+  `date_added` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `keywords` text,
+  `category_id` int(11) NOT NULL,
+  `location_id` int(11) NOT NULL,
+  `transfer_status_id` int(11) DEFAULT NULL,
+  `description` text NOT NULL,
+  `action_date` int(11) DEFAULT NULL,
+  `slot_num` int(5) NOT NULL,
+  `organization_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1

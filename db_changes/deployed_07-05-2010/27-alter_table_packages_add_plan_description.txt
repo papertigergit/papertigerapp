@@ -1,0 +1,7 @@
+ALTER TABLE `packages` ADD `plan_description` VARCHAR( 60 ) NOT NULL COMMENT 'Description field for plans'  AFTER `name`;
+
+UPDATE `paper_tiger`.`packages` SET `plan_description` = 'Forever' WHERE `packages`.`id` =1 LIMIT 1 ;
+
+UPDATE `paper_tiger`.`packages` SET `plan_description` = 'For individuals' WHERE `packages`.`id` =2 LIMIT 1 ;
+
+UPDATE `paper_tiger`.`packages` SET `plan_description` = 'Share files' WHERE `packages`.`id` =3 LIMIT 1 ;

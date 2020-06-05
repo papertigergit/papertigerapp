@@ -1,0 +1,2 @@
+alter table database_permissions change column `is_readonly` `read` tinyint not null;
+alter table location_permissions add column `write` tinyint not null;

@@ -1,0 +1,2 @@
+alter table users change column `first_name` `first_name` varchar(255);
+alter table users change column `last_name` `last_name` varchar(255);

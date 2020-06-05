@@ -1,0 +1,1 @@
+alter table organizations add column `newsletter` tinyint default 1 after force_ssl;

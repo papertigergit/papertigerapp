@@ -1,0 +1,268 @@
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+#content {
+  margin: 0;
+  min-width: 920px;
+}
+#content table {
+  border: 0;
+  width: 880px;
+}
+#content table td, #content table th {
+  border: 0;
+  min-width: 0px;
+  vertical-align: middle;
+}
+#content_wrapper {
+  margin: 0px auto 0px auto;
+  padding: 20px 20px 0px 40px;
+  width: 920px;
+}
+#content_fixed {
+  width: 920px;
+}
+#section {
+  background-color: #FFF;
+  padding: 10px 20px 10px 20px;
+  -webkit-box-shadow: 4px 4px 8px #a9a9a9;
+  -moz-box-shadow: 4px 4px 8px #a9a9a9;
+  box-shadow: 4px 4px 8px #a9a9a9;
+}
+#section_title {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0px 4px 0px;
+  margin-bottom: 20px;
+}
+#section h2, #section_title h2 {
+  font-size: 17pt;
+  padding-left: 10px;
+}
+#section_title_left {
+  float: left;
+  line-height: 5px;
+}
+#section_title_right {
+  float: right;
+  font-size: 10pt;
+  text-align: left;
+}
+#account_owner h3, .account_info h3 {
+  font-size: 16pt;
+  margin-bottom: 6px;
+  padding-left: 10px;
+}
+#data_usage {
+  float: right;
+  width: 420px;
+  margin-left: 20px;
+}
+#data_usage_item_contain, #account_owner_item {
+  background: #74CEC9;
+  height: 55px;
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  padding: 15px 0px 10px 5px;
+}
+.data_usage_item {
+  float: left;
+  width: 100px;
+  color: #2D3C65;
+  font-weight: bold;
+  font-size: 19pt;
+  text-align: center;
+  border-right: 1px solid #ddd;
+}
+.last {
+  border-right: none;
+}
+.data_usage_item span {
+  color: #000;
+  font-weight: normal;
+  font-size: 12pt;
+  text-transform: capitalize;
+}
+#account_owner {
+  float: left;
+  width: 425px;
+  margin-right: 15px;
+}
+#account_owner_item {
+  background: #FDEDBE;
+}
+#section hr {
+  color: #ddd;
+  margin: 15px 0;
+}
+#package_table {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  vertical-align: middle;
+}
+table#package_table thead {
+  background: #BFBFBF;
+}
+table#package_table th {
+  font-size: 10pt;
+  padding: 10px 5px 10px 10px;
+  border-top: #a7a7a7 solid 1px;
+  border-bottom: #a7a7a7 solid 1px;
+}
+th.plan {
+  text-align: left !important;
+  font-weight: bold !important;
+  font-size: 13pt !important;
+  width: 130px;
+  margin-left: 5px;
+}
+span.plan_description {
+  display: block;
+  color: #c57c00;
+  font-size: 9.5pt;
+  padding: 0px;
+  margin-top: 2px;
+}
+#package_table td {
+  border: 0;
+  border-width: 0px !important;
+  border-style: none !important;
+  text-align: center;
+  padding: 10px 0px 5px 10px;
+}
+td.plan_name {
+  font-size: 18pt;
+  text-align: left !important;
+  padding: 0px 0px 0px 5px;
+}
+td.plan_name .plan_description {
+  display: none;
+}
+#package_table th.option {
+  text-align: center !important;
+  text-transform: uppercase;
+  width: 110px;
+  font-weight: normal;
+}
+#package_table td.option {
+  border: 0;
+  border-width: 0px !important;
+  border-style: none !important;
+  padding: 0px 10px 0px 10px;
+  text-align: center;
+}
+#package_table td.button {
+  border: 0;
+  border-width: 0px !important;
+  border-style: none !important;
+  padding: 4px 0px 0px 0px;
+  margin: 0;
+  text-align: center;
+}
+#package_table td.button a {
+  vertical-align: middle;
+}
+#package_table tr {
+  border-bottom: 1px solid #CCC;
+}
+/*
+td .checkmark {
+	background-image:url('img/check_sprite.png');
+	width: 23px;
+	height: 22px;
+	background-position: 0 0;
+	display: block;
+	position: relative;
+	top: 0;
+	left: 37px;
+}
+
+td .xmark {
+	background-image:url('img/check_sprite.png');
+	width: 30px;
+	height: 25px;
+	background-position: 0 -22px;
+	display: block;
+	position: relative;
+	top: 0;
+	left: 35px;
+}
+
+td .unlimited {
+	background-image:url('img/check_sprite.png');
+	width: 21px;
+	height: 11px;
+	background-position: 0 -49px;
+	display: block;
+	position: relative;
+	top: 0;
+	left: 60px;
+}
+*/
+#account_footer p {
+  margin-bottom: 10px;
+  line-height: 1.2em;
+  font-family: Arial;
+  color: #444444;
+  font-size: smaller;
+}
+h5 {
+  padding-left: 8px;
+  color: black;
+  font-size: medium;
+  font-family: Trebuchet MS;
+}
+#account_footer_left {
+  float: left;
+  width: 545px;
+  font-family: Arial;
+  color: #444444;
+  margin-right: 15px;
+}
+.footer_section {
+  margin-top: 7px;
+  background: #ebebeb;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+.footer_section input[type=checkbox] {
+  display: inline-block;
+  margin-right: 5px;
+}
+.footer_section #account_owner_change {
+  margin-right: 5px;
+  padding: 0;
+}
+.footer_section #account_owner_submit {
+  display: inline-block;
+  padding: 0;
+}
+#account_footer_right {
+  float: right;
+  width: 320px;
+  overflow: visible;
+}
+#account_footer_right h5 {
+  margin-bottom: 10px;
+}
+#account_footer_right p {
+  margin-left: 10px;
+}
+#credit_card_info {
+  margin-top: 20px;
+}
+#credit_card_info img {
+  padding-left: 10px;
+  margin-bottom: 10px;
+}

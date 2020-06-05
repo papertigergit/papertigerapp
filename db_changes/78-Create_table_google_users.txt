@@ -1,0 +1,1 @@
+create table `google_users` ( `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT, `user_id` int(11) NOT NULL, `username` varchar(60), `password` varchar(60), `last_login` int(11), `status` tinyint , KEY `user_id`(`user_id`), CONSTRAINT `google_users_fk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE);

@@ -1,0 +1,7 @@
+alter table failed_logins ENGINE=InnoDB;
+alter table imports_hash ENGINE=InnoDB;
+alter table logs_items ENGINE=InnoDB;
+alter table logs_categories ENGINE=InnoDB;
+alter table logs_locations ENGINE=InnoDB;
+alter table logs_databases ENGINE=InnoDB;
+alter table user_settings ENGINE=InnoDB;

@@ -1,0 +1,13 @@
+ALTER TABLE `users` ADD `affiliate_code` varchar(5) NULL DEFAULT NULL  AFTER `active`;
+
+ALTER TABLE `users` ADD UNIQUE (
+`affiliate_code`
+);
+
+ALTER TABLE `users` ADD `affiliate_level` enum('affiliate','reseller') NULL DEFAULT NULL  AFTER `affiliate_code`;
+
+ALTER TABLE `users` CHANGE `affiliate_level` `affiliate_level` INT( 2 ) NULL DEFAULT NULL;
+
+ALTER TABLE `users` ADD `affiliate_parent_code` varchar(5) NULL DEFAULT NULL  AFTER `affiliate_level`;
+
+ALTER TABLE `users`  ADD `affiliate_first_name` VARCHAR(255) NOT NULL,  ADD `affiliate_last_name` VARCHAR(255) NOT NULL,  ADD `affiliate_street` VARCHAR(255) NOT NULL,  ADD `affiliate_street_2` VARCHAR(255) NOT NULL,  ADD `affiliate_city` VARCHAR(255) NOT NULL,  ADD `affiliate_state` VARCHAR(255) NOT NULL,  ADD `affiliate_zip` VARCHAR(5) NOT NULL,  ADD `affiliate_tax` VARCHAR(100) NOT NULL COMMENT 'Encrypted with CI';

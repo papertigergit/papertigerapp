@@ -1,0 +1,1 @@
+update label_settings set print_item_name='1' where label_id in('5366','8066','5066','5766','5866','5966','6466','8366','45366','5160','5266')

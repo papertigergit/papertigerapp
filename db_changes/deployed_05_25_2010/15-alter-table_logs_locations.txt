@@ -1,0 +1,1 @@
+alter table logs_locations add `organization_id` int(11) after database_id

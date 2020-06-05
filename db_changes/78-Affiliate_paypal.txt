@@ -1,0 +1,1 @@
+ALTER TABLE  `users` ADD  `affiliate_paypal` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT  'paypal email address'

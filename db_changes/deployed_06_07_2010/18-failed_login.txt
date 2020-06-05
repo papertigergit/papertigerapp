@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `failed_logins` (
+  `email_address` varchar(60) default NULL,
+  `ip_address` varchar(20) NOT NULL,
+  `date` int(11) NOT NULL,
+  KEY `ip_address` (`ip_address`),
+  KEY `user_id` (`email_address`),
+  KEY `date` (`date`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

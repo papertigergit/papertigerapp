@@ -1,0 +1,49 @@
+<?php error_reporting(0); ?>
+<table width="100%" cellpadding="15" border="0">
+<?php 
+	$count=0;
+	$j=0;
+	$printable_item_names=$settings->result_object[0]->print_item_name;
+	for($i=$range_start; $i<=$range_end; $i++): 
+?>
+<?php if($count%4 == 0): ?>
+<tr>
+<?php endif; ?>
+<?php
+if($printable_item_names==1){		
+	$label_text='';
+	$items_result=$items->result_array();
+	
+	if($print_location_name=="on" && $print_item_name=="on"):
+		$label_text=$location_name."-".$items_result[$j]['name'];
+	endif;	
+	if($print_location_name==null && $print_item_name=="on"):
+		$label_text=$items_result[$j]['name'];
+	endif;	
+	if($print_location_name=="on" && $print_item_name==null):
+		$label_text=$location_name;
+	endif;	
+} else {
+	$label_text=$location_name;
+}
+?>
+
+
+<td height="0.66in" width="2.8in" align="left" ><?=character_limiter($label_text,18,'...')?></td>	
+<td height="0.66in" width="0.6345in" align="center"><?php echo $i; ?></td>
+	
+
+<td width="0.5in" border="0">
+</td>
+
+<?php $count+=2; ?>
+<?php if($count%4 == 0): ?>
+</tr>
+<?php endif; ?>
+
+<?php $j++; ?>
+<?php endfor; ?>
+<?php if($count%2 == 0 && $count%4 != 0): ?>
+</tr>
+<?php endif; ?>
+</table>

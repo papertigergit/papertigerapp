@@ -1,0 +1,53 @@
+@import "variables";
+/*  __     __   _  _  __   _  _  ____  */
+/* (  )   / _\ ( \/ )/  \ / )( \(_  _) */
+/* / (_/\/    \ )  /(  O )) \/ (  )(   */
+/* \____/\_/\_/(__/  \__/ \____/ (__)  */
+/*                                     */
+
+body {
+	margin:0;
+	padding:0;
+	border:0;			/* This removes the border around the viewport in old versions of IE */
+	width:100%;
+	background:#ebebeb;
+	min-width:960px;    	/* Minimum width of layout - remove line if not required */
+	font-size:90%;
+}
+
+#wrapper{
+  float:left;
+  width:100%;
+}
+/* Header styles */
+#header {
+	background: @main_color;
+	height:100px;
+	margin-bottom: 20px;
+
+	h1{
+		color:white;
+		.title_font;
+	}
+}
+
+.col1{
+  float: left;
+  width: 200px; /*Width of left column*/
+
+  #sidebar{
+    margin:10px;
+    margin-top:0;
+    }
+
+  }
+
+.col2{
+		margin-left: 200px; /*Set left margin to LeftColumnWidth*/
+  }
+
+/* Footer styles */
+#footer {
+	clear:left;
+	width:100%;
+}

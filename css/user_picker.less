@@ -1,0 +1,95 @@
+//User Picker Stuff
+
+/* Colors */
+@body_font: #444444;
+@border_color: #bababa;
+@content_bg: #ececec;
+@pt_blue: #2b3e66;
+@pt_orange: #c57c00;
+
+
+/* Style Classes */
+.top_bottom_borders {
+	border-top: solid @border_color 1px;
+	border-bottom: solid @border_color 1px;
+	}
+
+#user_picker{
+
+	margin-left: auto;
+
+	margin-bottom: 10px;
+
+	margin-right: auto;
+
+	margin-top: 15px;
+
+	width: 215px;
+	}
+
+#display {
+	margin-right: auto;
+	margin-left: auto;
+	width: 110px;			
+}
+
+#minus, #plus{
+	background-position: 0 2px;
+	background-repeat: no-repeat;
+	text-align: center;
+	border: 1px solid @border_color;
+	line-height: 22pt;
+	font-size: 38pt;
+	margin-top: 38px;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	}
+	
+#plus {
+	background: url(http://dev.thepapertiger.com/img/signup/plus.png) 0 1px;
+	float: right;
+	}
+
+#minus {
+	background-image: url(http://dev.thepapertiger.com/img/signup/minus.png);
+	float: left;
+	}		
+
+#user_picker #quantity {
+	font-family:"Trebuchet MS";
+	width: 110px;
+	color: @pt_blue;
+	background-color: white;
+	font-size:46pt;
+	font-weight: bold;
+	text-align: center;
+	border-top: 1px solid @border_color;	
+	}
+
+#user_picker #label {
+	width: 100px;
+	color: #d5c04c;
+	background-color: @pt_blue;
+	padding: 3px 5px 3px 5px;
+	font-size:22pt;
+	font-family: "Trebuchet MS";
+	text-align:center;
+	border-bottom: 1px solid @border_color;					
+	}
+
+#price {
+	font-family:"Trebuchet MS";
+	margin-left: auto;
+	margin-bottom: 20px;
+	margin-right: auto;
+	margin-top: 0px;
+	width: 250px;
+	font-size: 30pt;
+	font-weight: bold;
+	text-align: center;
+	color: #388723;
+	padding: 5px 0px 5px 0px;
+	background: #d8f2d1;
+	.top_bottom_borders;
+	}

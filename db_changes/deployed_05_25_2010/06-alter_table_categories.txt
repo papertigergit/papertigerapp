@@ -1,0 +1,1 @@
+alter table categories change `name` `name` varchar(255);

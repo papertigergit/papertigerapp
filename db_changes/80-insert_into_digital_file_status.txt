@@ -1,0 +1,4 @@
+insert into digital_file_status values('',0,"Pending Indexing");
+insert into digital_file_status values('',1,"Sucessfully Indexed");
+insert into digital_file_status values('',2,"Indexing in Progress");
+insert into digital_file_status values('',3,"Pending Upload");

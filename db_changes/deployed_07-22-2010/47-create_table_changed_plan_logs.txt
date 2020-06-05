@@ -1,0 +1,1 @@
+create table changed_plan_logs( id int primary key auto_increment, changed_by int, org_id int, from_plan int, to_plan int, ts int);

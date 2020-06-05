@@ -1,0 +1,1 @@
+<h1>Hey! It looks like you have JavaScript disabled. Please enable it from your browser's settings, Paper Tiger Online needs JavaScript to work properly!</h1>

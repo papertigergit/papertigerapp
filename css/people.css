@@ -1,0 +1,32 @@
+img.user_picture {
+  float: left;
+  margin-right: 10px;
+  border: 0;
+}
+#dashboard_left {
+  -webkit-box-shadow: 4px 4px 8px #a9a9a9;
+  -moz-box-shadow: 4px 4px 8px #a9a9a9;
+  box-shadow: 4px 4px 8px #a9a9a9;
+}
+div.seat_container_full {
+  float: left;
+  padding: 10px 20px 10px 20px;
+  width: 280px;
+  height: 82px;
+}
+#dashboard h3.person_name { border-top: none; }
+div.seat_container_empty {
+  float: left;
+  padding: 20px;
+  padding-top: 0;
+  padding-bottom: 40px;
+  width: 280px;
+}
+h3.person_name { margin-bottom: 5px; }
+a.person_email { font-size: 10pt; }
+div#additional_seats_message {
+  background: #ffffff;
+  font-size: 24px;
+  padding: 10px;
+  text-align: center;
+}

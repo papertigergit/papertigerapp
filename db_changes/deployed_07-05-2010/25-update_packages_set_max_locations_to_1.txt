@@ -1,0 +1,1 @@
+update packages set max_locations=1 where id=1;

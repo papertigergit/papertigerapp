@@ -1,0 +1,7 @@
+ALTER TABLE  `affiliate_tracking` ADD  `organization_name` VARCHAR( 60 ) NOT NULL COMMENT  'For use with manual entry' AFTER  `organization_id`;
+
+ALTER TABLE  `affiliate_tracking` ADD  `manual_payment_amount` DECIMAL( 5, 2 ) NOT NULL COMMENT  'For use with manual entry' AFTER  `organization_name`;
+
+ALTER TABLE `affiliate_tracking` CHANGE `organization_name` `organization_name` VARCHAR(60) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'For use with manual entry', CHANGE `manual_payment_amount` `manual_payment_amount` DECIMAL(5,2) NULL COMMENT 'For use with manual entry';
+
+ALTER TABLE  `affiliate_tracking` CHANGE  `organization_id`  `organization_id` INT( 11 ) NULL DEFAULT NULL COMMENT 'Organization that signed up under the affiliate';

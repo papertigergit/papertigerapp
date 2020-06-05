@@ -1,0 +1,120 @@
+body {
+  font: 12px/1.3 Arial, Sans-serif;
+  font-family: "Trebuchet MS";
+}
+div#top_span {
+  border-bottom-color: #d2b00a;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin: 0px;
+  width: 100%;
+  background-repeat: repeat;
+  background-image: url(/img/signup/title_span.png);
+}
+div#logo {
+  width: 576px;
+  height: 179px;
+  margin: 0 auto;
+  background: url(/img/login/signup_header.png) no-repeat 0 transparent;
+  text-indent: -9999px;
+}
+div#main_wrapper {
+  width: 432px;
+  margin: 30px auto 0 auto;
+}
+h1, h2 { text-align: center; }
+h1 {
+  font-size: 2.7em;
+  font-family: "Trebuchet MS";
+  font-weight: bold;
+  letter-spacing: -0.08em;
+  margin-bottom: 0px;
+}
+h2 {
+  font-size: 2.7em;
+  font-family: "Trebuchet MS";
+  font-weight: normal;
+  letter-spacing: -0.08em;
+  margin-bottom: -0.4em;
+  margin-top: 10px;
+}
+h3 {
+  font-size: 2em;
+  font-family: "Trebuchet MS";
+  font-weight: normal;
+  letter-spacing: -0.08em;
+  margin-bottom: -0.4em;
+  margin-top: 10px;
+}
+a { color: #4f71cd; }
+a:focus { color: #000000; }
+a:hover { color: #000000; }
+div.wrapper {
+  clear: both;
+  position: relative;
+  margin-bottom: 10px;
+  margin-left: 8px;
+  width: 650px;
+}
+label {
+  display: inline-block;
+  width: 4em;
+  text-align: right;
+  margin-right: 0.5em;
+  font-size: 2.4em;
+  font-family: "Trebuchet MS";
+  letter-spacing: -0.08em;
+  vertical-align: middle;
+}
+label.remember {
+  font-size: 1.3em;
+  text-align: left;
+  display: inline;
+  width: 300px;
+}
+form {
+  background-color: #f7f7f7;
+  width: 432px;
+  height: 286px;
+  background: url(/img/login/login_bg.png) transparent no-repeat;
+  padding-top: 9px;
+}
+input {
+  width: 255px;
+  height: 30px;
+  vertical-align: middle;
+  font-size: 2em;
+  padding-left: 5px;
+}
+input.remember {
+  font-size: 1.3em;
+  height: 15px;
+  width: 20px;
+  margin-left: 130px;
+}
+input:focus { border-color: #777777; }
+.bad_input { border-color: red; }
+input#submit {
+  cursor: pointer;
+  display: block;
+  height: 77px;
+  margin: 8px auto;
+  padding: 5px;
+  width: 209px;
+}
+input[type="submit"]:hover {
+  border-color: #333333;
+  background: #dddddd;
+}
+input[type="submit"]:focus {
+  border-color: #333333;
+  background: #dddddd;
+}
+.alert {
+  color: #d82727;
+  padding-left: 15px;
+  margin-left: 15px;
+  font-size: 1.3em;
+  vertical-align: middle;
+}
+.new_alert { display: none; }

@@ -1,0 +1,1 @@
+CREATE TABLE `logs_categories` (   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,`category_id` int(11),`action` int(11),`action_time` int(11),`by_who` int(11), `date_added` int(11) NOT NULL,   `database_id` int(11) NOT NULL,   `name` varchar(255))

@@ -1,0 +1,1 @@
+update packages set active=1,allow_db_import=0,advanced_search=0 where id in(9,10);

@@ -1,0 +1,391 @@
+/*   ___  ____  ____    ____  ____  ____  ____  ____  */
+/*  / __)/ ___)/ ___)  (  _ \(  __)/ ___)(  __)(_  _) */
+/* ( (__ \___ \\___ \   )   / ) _) \___ \ ) _)   )(   */
+/*  \___)(____/(____/  (__\_)(____)(____/(____) (__)  */
+/* 																									  */
+body {
+  padding: 0;
+  margin: 0;
+  font: 13px Arial, Helvetica, Garuda, sans-serif;
+  *font-size: small;
+  *font: x-small;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+em,
+strong,
+pre,
+code,
+button,
+span,
+img {
+  padding: 0;
+  margin: 0;
+  line-height: 1em;
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+}
+table {
+  font-size: inherit;
+  font: 100%;
+}
+ul {
+  list-style: none;
+}
+img {
+  border: 0;
+}
+p {
+  margin: 1em 0;
+}
+/*   ___  __   __ _  ____  ____  __   __ _  ____  ____  */
+/*  / __)/  \ (  ( \/ ___)(_  _)/ _\ (  ( \(_  _)/ ___) */
+/* ( (__(  O )/    /\___ \  )( /    \/    /  )(  \___ \ */
+/*  \___)\__/ \_)__)(____/ (__)\_/\_/\_)__) (__) (____/ */
+/*                                                      */
+h1 {
+  font-size: 190%;
+}
+h2 {
+  font-size: 160%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+  letter-spacing: -0.06em;
+}
+.title_font {
+  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+}
+.letterpress {
+  text-shadow: rgba(0, 0, 0, 0.45) 0 -1px 0.025em, rgba(255, 255, 255, 0.75) 0 1px 0.025em;
+}
+.clear {
+  clear: both;
+}
+.border_bottom {
+  border-bottom: solid 1px #939393;
+}
+.border_right {
+  border-right: solid 1px #939393;
+}
+.border_top {
+  border-top: solid 1px #939393;
+}
+strong {
+  font-weight: bold;
+}
+.box_shadow {
+  -webkit-box-shadow: 0px 0px 4px #a9a9a9;
+  -moz-box-shadow: 0px 0px 4px #a9a9a9;
+  box-shadow: 0px 0px 4px #a9a9a9;
+}
+/*  ____  __  __    ____    ____  __  ____  ____  __     __   _  _    ____  __   ____  __    ____  */
+/* (  __)(  )(  )  (  __)  (    \(  )/ ___)(  _ \(  )   / _\ ( \/ )  (_  _)/ _\ (  _ \(  )  (  __) */
+/*  ) _)  )( / (_/\ ) _)    ) D ( )( \___ \ ) __// (_/\/    \ )  /     )( /    \ ) _ (/ (_/\ ) _)  */
+/* (__)  (__)\____/(____)  (____/(__)(____/(__)  \____/\_/\_/(__/     (__)\_/\_/(____/\____/(____) */
+/* 																																																 */
+#sidebar #navigation a {
+  color: black;
+  margin-bottom: 0px;
+  font-size: 115%;
+  padding: 5px;
+  padding-left: 20px;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+}
+#sidebar #navigation a.active {
+  color: black;
+  background: lightgray;
+  text-shadow: rgba(0, 0, 0, 0.45) 0 -1px 0.025em, rgba(255, 255, 255, 0.75) 0 1px 0.025em;
+}
+#sidebar #navigation a:hover {
+  background: lightgray;
+}
+#sidebar #labels .label_color {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  moz-border-radius: 2px;
+  webkit-border-radius: 2px;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+#sidebar #labels a {
+  vertical-align: middle;
+  text-decoration: none;
+  color: black;
+  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+}
+#sidebar #create_new_label {
+  width: 130px;
+  margin: 10px auto;
+  display: block;
+}
+#content {
+  padding: 0 15px;
+}
+#search {
+  margin-bottom: 20px;
+  margin-left: 215px;
+}
+#search .search_box {
+  border: solid 1px #939393;
+  background: white;
+  height: 31px;
+  margin: 0;
+  padding-left: 4px;
+  font-size: 110%;
+  color: #939393;
+  width: 400px;
+}
+#search .submit_search {
+  height: 35px;
+  font-size: 110%;
+}
+.files_display {
+  border: solid 1px #939393;
+}
+.files_display #files_display_header {
+  background: #4f6735;
+  padding: 7px;
+  color: white;
+}
+.files_display .files_display_tools {
+  background: #F7F7F7;
+  /* old browsers */
+
+  background: -moz-linear-gradient(top, #f7f7f7 0%, #e5e5e5 100%);
+  /* firefox */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #e5e5e5));
+  /* webkit */
+
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F7F7F7', endColorstr='#E5E5E5',GradientType=0 );
+  /* ie */
+  height: 28px;
+  padding: 7px;
+  padding-left: 4px;
+}
+.files_display .files_display_tools button {
+  margin: 0;
+  margin-left: -5px;
+  margin-top: 0px;
+  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+  font-size: 90%;
+}
+.files_display .files_display_tools img.checkbox_dropdown_img {
+  vertical-align: bottom;
+}
+.files_display .files_display_tools .file_action_tools {
+  float: left;
+}
+.files_display .files_display_tools .pagination {
+  float: right;
+  font-size: 90%;
+  margin-top: 6px;
+}
+.files_display .files_display_tools .pagination .pagination_link {
+  margin-left: 3px;
+}
+.files_display .file {
+  height: 100px;
+  padding: 10px 5px;
+  padding-left: 7px;
+  position: relative;
+  border-bottom: solid 1px #939393;
+  background: #E5E5E5;
+  /* old browsers */
+
+  background: -moz-linear-gradient(top, #e5e5e5 0%, #fcfcfc 100%);
+  /* firefox */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, #fcfcfc));
+  /* webkit */
+
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E5E5E5', endColorstr='#FCFCFC',GradientType=0 );
+  /* ie */
+}
+.files_display .file .file_select {
+  vertical-align: top;
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+.files_display .file .file_thumbnail {
+  vertical-align: top;
+  margin-right: 5px;
+  width: 72px;
+  float: left;
+  margin-right: 10px;
+  -webkit-box-shadow: 0px 0px 4px #a9a9a9;
+  -moz-box-shadow: 0px 0px 4px #a9a9a9;
+  box-shadow: 0px 0px 4px #a9a9a9;
+}
+.files_display .file .file_thumbnail_large {
+  width: 400px;
+  float: left;
+  margin-right: 10px;
+  -webkit-box-shadow: 0px 0px 4px #a9a9a9;
+  -moz-box-shadow: 0px 0px 4px #a9a9a9;
+  box-shadow: 0px 0px 4px #a9a9a9;
+}
+.files_display .file .file_attributes {
+  vertical-align: top;
+  margin-left: 100px;
+  margin-right: 10px;
+}
+.files_display .file .file_attributes a.file_filename {
+  display: inline-block;
+  font-size: 130%;
+  font-weight: bold;
+  color: black;
+  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+  /*.letterpress; */
+
+}
+.files_display .file .file_attributes .file_path {
+  color: #737373;
+  margin: 6px 0;
+  display: block;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size: 80%;
+}
+.files_display .file .file_attributes .file_tags {
+  max-height: 44px;
+  overflow-y: hidden;
+}
+.files_display .file .file_attributes .file_tag {
+  display: inline-block;
+  background: green;
+  padding: 3px 9px;
+  padding-right: 6px;
+  margin-bottom: 4px;
+  font-size: 65%;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.files_display .file .file_attributes .remove_label {
+  /*display:inline-block;*/
+
+  background: green;
+  font-size: 65%;
+  display: inline;
+  border-left: solid 1px #939393;
+  width: 15px;
+  padding: 3px 6px;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.files_display .file .file_attributes.large {
+  margin-left: 440px;
+}
+.files_display .file .file_attributes.large button {
+  margin-bottom: 5px;
+}
+.files_display .file .file_attributes.large p {
+  font-size: 95%;
+  margin: 0 0 6px 0;
+  padding: 0;
+  font-family: Arial, Helvetica, Garuda, sans-serif;
+}
+.files_display .file .file_attributes.large p:last-child {
+  margin-bottom: 15px;
+}
+.files_display .file .file_attributes.large .file_filename {
+  /*margin-bottom:5px;*/
+
+}
+.files_display .file .file_attributes.large .file_tags {
+  margin-bottom: 10px !important;
+  max-height: inherit !important;
+}
+.files_display .file .file_attributes.large label {
+  margin-bottom: 5px;
+  display: block;
+}
+.files_display .file .file_attributes.large textarea {
+  margin-bottom: 5px;
+  display: block;
+}
+.files_display .file .file_notes {
+  width: 100%;
+  height: 200px;
+}
+.files_display .file .single_file_action_tools {
+  position: absolute;
+  display: none;
+  left: -71px;
+  top: 28px;
+  height: 100px;
+  width: 100px;
+}
+.files_display .file .single_file_action_tools .tool {
+  display: block;
+  margin-bottom: 4px;
+  cursor: pointer;
+  vertical-align: top;
+}
+.files_display .file .single_file_action_tools .tool_label {
+  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+  display: inline-block;
+  color: #939393;
+  font-size: 70%;
+  vertical-align: top;
+  padding: 0;
+  text-align: right;
+  margin-top: 3px;
+  width: 75px;
+}
+.files_display .file .single_file_action_tools img {
+  display: inline-block;
+  /*float:right;*/
+
+}
+.files_display .file .file_information {
+  color: #737373;
+  /*float:right;*/
+
+  /*text-align:right;*/
+
+  margin-right: 6px;
+  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+}
+.files_display .file .file_information .file_date_uploaded {
+  font-weight: bold;
+  display: block;
+  font-size: 130%;
+  margin-bottom: 3px;
+}
+.files_display .file .file_information .file_day_uploaded {
+  font-size: 75%;
+}
+.files_display .file .file_information .file_user_source {
+  display: block;
+}
+.files_display .file:last-child {
+  border-bottom: none;
+}

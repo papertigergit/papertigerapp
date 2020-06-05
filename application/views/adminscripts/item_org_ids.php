@@ -1,0 +1,1 @@
+Items with no organization_id have been linked up to the approriate organization.

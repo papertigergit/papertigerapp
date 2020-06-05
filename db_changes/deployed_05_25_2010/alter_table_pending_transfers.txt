@@ -1,0 +1,1 @@
+alter table pending_transfers add column `transfer_date` int(10) after merge_into

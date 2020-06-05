@@ -1,0 +1,7 @@
+alter table packages add column `mailing_list` varchar(30) after plan_description;
+update packages set mailing_list="Paper Tiger Online Free" where id=1 or id=4 or id=14;
+update packages set mailing_list="Paper Tiger Online Basic" where id=9 or id=10;
+update packages set mailing_list="Paper Tiger Online Pro" where id=2 or id=3 or id=13;
+update packages set mailing_list="Paper Tiger Online Business" where id=5 or id=6 or id=15;
+update packages set mailing_list="Paper Tiger Online Elite" where id=11 or id=12 or id=16;
+update packages set mailing_list="Paper Tiger Online Unlimited" where id=7 or id=8 or id=17;

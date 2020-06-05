@@ -1,0 +1,1 @@
+alter table digital_files add column `encrypted_file_hash` varchar(32) after file_hash;

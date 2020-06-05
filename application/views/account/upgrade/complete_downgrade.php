@@ -1,0 +1,1 @@
+Your account has been downgraded to the <?=$package->name?> Package.

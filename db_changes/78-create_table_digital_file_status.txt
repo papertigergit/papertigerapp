@@ -1,0 +1,1 @@
+create table digital_file_status( `id` int(11) AUTO_INCREMENT NOT NULL, `file_status_id` INT(11) NOT NULL, `file_status_description` varchar(30), PRIMARY KEY(`id`)) CHARSET=utf8;

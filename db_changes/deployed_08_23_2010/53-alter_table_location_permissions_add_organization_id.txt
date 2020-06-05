@@ -1,0 +1,3 @@
+alter table location_permissions add column `organization_id` int(11) after id;
+alter table location_permissions change organization_id organization_id int not null;
+alter table location_permissions change pto_umask pto_umask int not null;
