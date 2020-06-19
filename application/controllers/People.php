@@ -244,12 +244,12 @@ class People extends CI_Controller {
 		$this->authentication->require_authentication('admin');
 		$user_id = $this->uri->segment(3);
 		
-		if($user_id === FALSE) {
+		if($user_id === NULL) {
 			$user_id = $this->input->post('user_id');
 		}
 		
 		//still no user id?
-		if($user_id === FALSE) {
+		if($user_id === NULL) {
 			$this->load->view('facebox_error',array('error'=>'Select a user first.'));
 			return;
 		}
@@ -362,7 +362,10 @@ class People extends CI_Controller {
 		
 		//only validate password field if it isnt blank
 		if($this->input->post('password') != "") {
-			$this->form_validation->set_rules('password', 'Password', 'min_length[6]|matches[password_confirmation]');
+			$this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]');
+			$this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'trim|min_length[6]|matches[password]');
+
+			// $this->form_validation->set_rules('password', 'Password', 'min_length[6]|matches[password_confirmation]');
 			$password = sha1($this->input->post('password').$this->config->item('encryption_key'));
 		} else {
 			$password = NULL;
@@ -375,6 +378,7 @@ class People extends CI_Controller {
 			if(form_error('first_name')!=''){$errors[]='"first_name":"'.form_error('first_name').'"';}
 			if(form_error('last_name')!=''){$errors[]='"last_name":"'.form_error('last_name').'"';}
 			if(form_error('password')!=''){$errors[]='"password":"'.form_error('password').'"';}
+			if(form_error('password_confirmation')!=''){$errors[]='"password_confirmation":"'.form_error('password_confirmation').'"';}
 			
 			$errors = implode(",", $errors);
 			echo '{ "result": "validation_error", "errors": {'.$errors.'}}';
