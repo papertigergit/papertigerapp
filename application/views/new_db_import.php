@@ -146,7 +146,7 @@ Need Help?
 				
 
 				
-				<a style="display:block; background:#C72028; padding:15px; font-size:1.5em; font-family:Arial; color:white; text-align:center; width:300px; margin: 10px auto;" href="https://appdev2.thepapertiger.com/imports/new_database" id="db_import_tool_toggle" class="red" target="_blank" >Continue with the Automatic Database Import Tool.</a>
+				<a style="display:block; background:#C72028; padding:15px; font-size:1.5em; font-family:Arial; color:white; text-align:center; width:300px; margin: 10px auto;" href="https://app.thepapertiger.com/imports/new_database" id="db_import_tool_toggle" class="red" target="_blank" >Continue with the Automatic Database Import Tool.</a>
 </p>
   
 				
