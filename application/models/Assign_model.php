@@ -21,7 +21,7 @@ class Assign_model extends CI_Model {
     		'assigned_to'=>$assigned_to,
     		'object_id' => $object_id,
 		'object_type' => $object_type,
-		'ts'	=> now()
+		'ts'	=> time()
     	);
     	$this->db->insert('assigned_databases', $data);
 	return $this->db->insert_id();

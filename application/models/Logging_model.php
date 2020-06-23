@@ -43,7 +43,7 @@ class Logging_model extends CI_Model {
 		'database_id'=>$database_id,
 		'action_time'=>time(),
 		'by_who_id'=>$user_data['id'],
-    		'name'=>$this->input->post('name'),
+    		'name'=>$this->input->post('name')??0,
     		'date_added'=>time(),
     		'organization_id' => $org_id,
 		'status' => 1
