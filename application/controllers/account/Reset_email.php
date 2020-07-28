@@ -7,7 +7,7 @@ class Reset_email extends CI_Controller {
 		
 		$this->load->helper('form');
 		
-		$this->load->model('user_model');
+		$this->load->model(array('user_model','organization_model'));
 	}
 	
 	function reset() {
@@ -42,33 +42,43 @@ class Reset_email extends CI_Controller {
 				$data = array(	'authorization_code'	=> $authorization_code
 				);
 
-				$this->form_validation->set_rules('password', 'required|min_length[6]');
+				$this->form_validation->set_rules('password', 'Password' ,'required|min_length[6]');
 				
 				if ($this->form_validation->run() == FALSE) {
 					$this->load->view('reset_email', $data);
 				} else  {
 						if($user->row()->sha1_password === sha1($this->input->post('password').$this->config->item('encryption_key')))
 						{	
-							// let's load up Braintreezle
-							require_once('./vendor/braintree/braintree_php/lib/Braintree.php');
-							$this->config->load('braintree');
-							$gateway = new Braintree\Gateway([
-                					    'environment' => $this->config->item('environment'),
-                					    'merchantId' => $this->config->item('merchantId'),
-                					    'publicKey' => $this->config->item('publicKey'),
-                					    'privateKey' => $this->config->item('privateKey')
-            						    ]);
+							$organization_data = $this->organization_model->get_organization($user->row()->organization_id);
+							if($organization_data->row()->subscriptionn_id != 0){
 
-							$updateResult = $gateway->customer()->update(
-							$this->organization_data->id,
-								array(
-								'email' => $user->row()->new_email_address,
-								)
-							);
-							// if braintree email is successfully changed then change email in database
-							if($updateResult->success){
+								// let's load up Braintreezle
+								require_once('./vendor/braintree/braintree_php/lib/Braintree.php');
+								$this->config->load('braintree');
+								$gateway = new Braintree\Gateway([
+                						    'environment' => $this->config->item('environment'),
+                						    'merchantId' => $this->config->item('merchantId'),
+                						    'publicKey' => $this->config->item('publicKey'),
+                						    'privateKey' => $this->config->item('privateKey')
+            							    ]);
+	
+								$updateResult = $gateway->customer()->update(
+								$user->row()->organization_id,
+									array(
+									'email' => $user->row()->new_email_address,
+									)
+								);
+								// if braintree email is successfully changed then change email in database
+								if($updateResult->success){
+									$this->user_model->change_email_address($user->row()->id, null);
+								}
+
+							}else{
+
 								$this->user_model->change_email_address($user->row()->id, null);
+
 							}
+							
 						
 							
 							//$this->session->set_flashdata('success', 'Your email address was successfully changed');
