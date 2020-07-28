@@ -1981,7 +1981,7 @@ position: relative;
     padding-right: 7px;
     padding-top: 7px;
 	background-color:#CA1700;
-	display:none;
+	display:block;
 	margin-bottom:7px;
 	/* margin-top: 7px; */
 }
@@ -2027,7 +2027,7 @@ position: relative;
 	/* margin-left: 100px; */
 }
 .pending_conversion_grid{
-	display:none;
+	display:block;
 	padding: 10px;
 	background-color: #DF6963;
 	margin-bottom: 7px;
