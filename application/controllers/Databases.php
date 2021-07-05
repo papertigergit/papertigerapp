@@ -531,7 +531,11 @@ $this->authentication->require_authentication();
                 $objPHPExcel->getActiveSheet()->SetCellValue('A'.$current_item_index, utf8_encode($sheet_title));
                 $objPHPExcel->getActiveSheet()->SetCellValue('B'.$current_item_index, utf8_encode($item_result['slot_num']));
                 $objPHPExcel->getActiveSheet()->SetCellValue('C'.$current_item_index, utf8_encode($item_result['name']));
-                $objPHPExcel->getActiveSheet()->SetCellValue('D'.$current_item_index, utf8_encode($item_result['keywords']));
+
+                //$objPHPExcel->getActiveSheet()->SetCellValue('D'.$current_item_index, utf8_encode($item_result['keywords']));
+                // Treat values as strings instead of formulae or disable calculation engine $objWriter->setPreCalculateFormulas(false); 
+                $objPHPExcel->getActiveSheet()->setCellValueExplicit('D'.$current_item_index, utf8_encode($item_result['keywords']));
+
                 $objPHPExcel->getActiveSheet()->SetCellValue('E'.$current_item_index, utf8_encode($item_result['description']));
                 $objPHPExcel->getActiveSheet()->SetCellValue('F'.$current_item_index, utf8_encode($category_name));
                 $objPHPExcel->getActiveSheet()->SetCellValue('G'.$current_item_index, utf8_encode($action_date));
