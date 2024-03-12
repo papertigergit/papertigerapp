@@ -56,7 +56,7 @@ if($pendingcount >= 1){
         <span id="digital_notice" >
          <?php echo $pendingcount; ?> <?php echo $unc_File; ?> found that are NOT in <a style="color:yellow;" target="_blank" href="https://docs.google.com/#folders">Google Drive</a> Format (non-searchable)
          
-        <span class="expand_unconverted">Show [+]</span>
+        <span class="expand_unconverted">Hide [-]</span>
  
         </span>
         
@@ -104,7 +104,7 @@ if($pendingcount >= 1){
 if($pendingcount >= 1){
 ?>
   <div class="table_header_bar_pending">
-                    <samp id="pending_conversion_total">DIGITAL - <?php echo $pendingcount; ?> <?php echo $unc_File; ?> found that are NOT in <a style="color:yellow;" target="_blank" href="https://docs.google.com/#folders">Google Drive</a> Format (non-searchable) <span id="pending_toggle_button"> Show <span class="expand_shrink">[+]</span></span></samp>
+                    <samp id="pending_conversion_total">DIGITAL - <?php echo $pendingcount; ?> <?php echo $unc_File; ?> found that are NOT in <a style="color:yellow;" target="_blank" href="https://docs.google.com/#folders">Google Drive</a> Format (non-searchable) <span id="pending_toggle_button">Hide [-]</span></samp>
                     
                 </div> 
  

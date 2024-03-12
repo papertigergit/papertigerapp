@@ -127,7 +127,7 @@ else
 						<td><?=htmlspecialchars($sorted_items->description) ?></td>
 					<?php } ?>
 					<?php if($this->input->post('item_list_category')=="on"){?>
-						<td class="itemCategory"><?=$sorted_items->category_id==0?'&nbsp;':htmlspecialchars($this->Category_model->get_by_id($sorted_items->category_id)->name)?></td>
+						<td class="itemCategory"><?=$sorted_items->category_id==0?'&nbsp;':htmlspecialchars($this->Category_model->get_by_id($sorted_items->category_id)->name??"")?></td>
 					<?php } ?>
 					<?php if($this->input->post('item_list_action_date')){?>
 					<td class="itemActionDate"><?=$sorted_items->action_date==0?'&nbsp;':date("m/d/Y",$sorted_items->action_date)?></td>

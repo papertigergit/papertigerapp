@@ -1,3 +1,4 @@
+<?php get_instance()->load->helper(['text_helper','date_helper']); ?>
 <div id="edit_category_form" class="facebox_form">
 	<div id="facebox_header"><div>Edit Category: <?=character_limiter(htmlspecialchars($this_category->name),37,'...')?></div><img src="<?=site_url()?>img/close_button.gif" alt="close" class="close"/></div>
 	<div id="facebox_content">

@@ -4,6 +4,8 @@ class Category_model extends CI_Model {
     function __construct() {
 			parent::__construct();
 			$this->load->database();
+			global $user_data;
+			$this->user_data = $this->session->userdata('user_data');
 			//indexes: id, database_id
     }
 	function log_modifications($category_id,$user_id=null) {
@@ -25,7 +27,8 @@ class Category_model extends CI_Model {
 	    return $this->db->get_where('categories', array('database_id' => $this->session->userdata('database_id')));
     }
     function get_from_network_database(){
-		$query=$this->db->query("select * from categories where owner='".$this->user_data['id']."' or id in (select category_id from items where location_id in (select locations.id from `locations`,`location_permissions` where locations.id=location_permissions.location_id and locations.database_id='".$this->session->userdata('database_id')."' and location_permissions.pto_umask > 0 and location_permissions.user_id='".$this->user_data['id']."' order by locations.name asc)) or owner='".$this->user_data['id']."' order by categories.name asc");
+		//$query=$this->db->query("select * from categories where owner='".$this->user_data['id']."' or id in (select category_id from items where location_id in (select locations.id from `locations`,`location_permissions` where locations.id=location_permissions.location_id and locations.database_id='".$this->session->userdata('database_id')."' and location_permissions.pto_umask > 0 and location_permissions.user_id='".$this->user_data['id']."' order by locations.name asc)) or owner='".$this->user_data['id']."' order by categories.name asc");
+		$query=$this->db->query("select * from categories where (owner='".$this->user_data['id']."' and database_id = '".$this->session->userdata('database_id')."') or id in (select category_id from items where location_id in (select locations.id from `locations`,`location_permissions` where locations.id=location_permissions.location_id and locations.database_id='".$this->session->userdata('database_id')."' and location_permissions.pto_umask > 0 and location_permissions.user_id='".$this->user_data['id']."' order by locations.name asc)) order by categories.name asc");
 	    return $query;
     }
     

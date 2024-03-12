@@ -498,7 +498,7 @@ $this->authentication->require_authentication();
       
       $databasename = $this->Database_model->get_by_id($this->session->userdata('database_id'))->name;
       $objPHPExcel = new PHPExcel();
-      $time_now=date('m/d/Y g:i:s A',now());
+      $time_now=date('m/d/Y g:i:s A');
       //write meta data
       $objPHPExcel->getProperties()->setCreator($this->user_data['first_name']." ".$this->user_data['first_name']);
       $objPHPExcel->getProperties()->setLastModifiedBy($this->user_data['first_name']." ".$this->user_data['first_name']);
@@ -522,7 +522,7 @@ $this->authentication->require_authentication();
             $export_items=$this->Item_model->get_for_excel_export($loc_result['id']);
               $current_item_index=2;
               foreach($export_items->result_array() as $item_result) {
-                $category_name=$this->Category_model->get_by_id($item_result['category_id'])->name;
+                $category_name=$this->Category_model->get_by_id($item_result['category_id'])->name??"";
                 if($item_result['action_date'] != null || $item_result['action_date'] != 0) {
                   $action_date=date('m/d/Y',$item_result['action_date']);
                 } else {
@@ -533,8 +533,8 @@ $this->authentication->require_authentication();
                 $objPHPExcel->getActiveSheet()->SetCellValue('C'.$current_item_index, utf8_encode($item_result['name']));
 
                 //$objPHPExcel->getActiveSheet()->SetCellValue('D'.$current_item_index, utf8_encode($item_result['keywords']));
-                // Treat values as strings instead of formulae or disable calculation engine $objWriter->setPreCalculateFormulas(false); 
-                $objPHPExcel->getActiveSheet()->setCellValueExplicit('D'.$current_item_index, utf8_encode($item_result['keywords']));
+		// Treat values as strings instead of formulae or disable calculation engine $objWriter->setPreCalculateFormulas(false); 
+		$objPHPExcel->getActiveSheet()->setCellValueExplicit('D'.$current_item_index, utf8_encode($item_result['keywords']));
 
                 $objPHPExcel->getActiveSheet()->SetCellValue('E'.$current_item_index, utf8_encode($item_result['description']));
                 $objPHPExcel->getActiveSheet()->SetCellValue('F'.$current_item_index, utf8_encode($category_name));
@@ -545,6 +545,9 @@ $this->authentication->require_authentication();
         $current_sheet++;
       }
       $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+
+      //$objWriter->setPreCalculateFormulas(false);
+
       //$objWriter->save("/tmp/file.xlsx");
       $excel_file_name=GenerateSafeFileName($databasename); 
       $excel_file_name=$excel_file_name.".xlsx";

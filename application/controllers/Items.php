@@ -445,11 +445,11 @@ class Items extends CI_Controller {
 		if(!isset($item)){
 			$item=$this->input->post('items');
 			$item=$item[0];
-			$position=$this->Item_model->get_by_id($item)->slot_num;
+			$position=$this->Item_model->get_by_id($item)->slot_num ?? 0;
 		}
-		$location_id = $this->Item_model->get_by_id($item)->location_id;
+		$location_id = $this->Item_model->get_by_id($item)->location_id ?? 0;
 		$page_number=1;
-		$loc_capacity=$this->Location_model->get_by_id($location_id)->capacity;
+		$loc_capacity=$this->Location_model->get_by_id($location_id)->capacity ?? 0;
 		$total_pages = ceil($loc_capacity / $page_size);
 		if($order_by=="slot_num" && $order=="asc") {
 			$page_number=ceil($position / $page_size );

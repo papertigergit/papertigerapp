@@ -59,8 +59,8 @@ class Organization extends CI_Controller {
 		if($this->authentication->is_authenticated())
 		{   
             
-            $client_id = '';
-            $client_secret = '';
+            $client_id = '553842701572-trhaovtktvh60nvk9jkc7iem9t39i41g.apps.googleusercontent.com';
+            $client_secret = 'kWfCHAih7DWwYU19JJr9H5eh';
             $redirect_uri = 'https://app.thepapertiger.com/account/organization/google_docs';
             $client = new Google_Client();
             $client->setClientId($client_id);
@@ -111,8 +111,8 @@ else
 		$this->load->model('organization_model');
 		if($this->input->post('update_newsletter') !==NULL ) {
 				$update_value=0;
-				$api_key='';
-				$listId = "";
+				$api_key='1ddf218cb55d3d51f6be533b72fc81ae-us1';
+				$listId = "a31d451a83";
 				$api = new MCAPI($api_key);
 			if($this->input->post('newsletter') == "on" ) {
 				//add user from mailchimp newsletter

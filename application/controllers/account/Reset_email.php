@@ -42,7 +42,7 @@ class Reset_email extends CI_Controller {
 				$data = array(	'authorization_code'	=> $authorization_code
 				);
 
-				$this->form_validation->set_rules('password', 'Password' ,'required|min_length[6]');
+				$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
 				
 				if ($this->form_validation->run() == FALSE) {
 					$this->load->view('reset_email', $data);
@@ -50,7 +50,7 @@ class Reset_email extends CI_Controller {
 						if($user->row()->sha1_password === sha1($this->input->post('password').$this->config->item('encryption_key')))
 						{	
 							$organization_data = $this->organization_model->get_organization($user->row()->organization_id);
-							if($organization_data->row()->subscriptionn_id != 0){
+							if($organization_data->row()->subscription_id != 0){
 
 								// let's load up Braintreezle
 								require_once('./vendor/braintree/braintree_php/lib/Braintree.php');
@@ -72,14 +72,11 @@ class Reset_email extends CI_Controller {
 								if($updateResult->success){
 									$this->user_model->change_email_address($user->row()->id, null);
 								}
-
 							}else{
 
 								$this->user_model->change_email_address($user->row()->id, null);
 
-							}
-							
-						
+							}			
 							
 							//$this->session->set_flashdata('success', 'Your email address was successfully changed');
 							//return "Nyagau";

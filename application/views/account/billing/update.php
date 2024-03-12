@@ -75,13 +75,17 @@ hr{
 					<label for="ccnumber">Credit Card</label>
 					<input type="text" name="ccnumber" id="ccnumber"/>
 					<br>
-
+					
+					<label for="cardCVV">CVV</label>
+					<input type="text" name="cardCVV" id="cardCVV" maxlength="4" size="4" />
+					<br>
+					
 					<label for="description">Expiration</label>
 					<?=expire_form_inputs(); ?>
 					<br>
-				
+					
 				    <img id="cards" src="<?=site_url()?>img/signup/cards.png" alt="We accept Visa, MasterCard, American Express, and Discover." />
-				
+
 					<hr />
 					
 					<h2>Billing Information</h2>

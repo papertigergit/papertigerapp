@@ -212,6 +212,7 @@ class Billing extends CI_Controller {
 			$this->load->library(array('form_validation'));
 			$this->form_validation->set_error_delimiters("<span class='alert new_alert'>","</span>");
 			$this->form_validation->set_rules('ccnumber', 'Credit Card', 'trim|required');
+			$this->form_validation->set_rules('cardCVV', 'Credit Card CVV', 'trim|required');
 //No custom validation function with this name callback_cc_check (cc_check) for credit card. Commented after upgrade.
 			$this->form_validation->set_rules('card_expires_on_month', 'Expiration Month', 'trim|required|is_natural_no_zero');
 			$this->form_validation->set_rules('card_expires_on_year', 'Expiration Year', 'trim|required|is_natural_no_zero');
@@ -227,6 +228,7 @@ class Billing extends CI_Controller {
 /* 				echo '{ "result": "validation_error", "errors": {"ccnumber":"Invalid credit card information."}}'; */
 
 				if(form_error('ccnumber')!=''){$errors[]='"ccnumber":"'.form_error('ccnumber').'"';}
+				if(form_error('cardCVV')!=''){$errors[]='"cardCVV":"'.form_error('cardCVV').'"';}
 				if(form_error('card_expires_on_month')!=''){$errors[]='"card_expires_on_month":"'.form_error('card_expires_on_month').'"';}
 				if(form_error('card_expires_on_year')!=''){$errors[]='"card_expires_on_year":"'.form_error('card_expires_on_year').'"';}
 				if(form_error('card_expires_on_month')!=''){$errors[]='"card_expires_on_month":"'.form_error('card_expires_on_month').'"';}
@@ -247,6 +249,7 @@ class Billing extends CI_Controller {
 				$result = $gateway->creditCard()->create(array(
 				    'customerId' => $this->organization_data->id,
 				    'number' => $this->input->post('ccnumber'),
+					'cvv' => $this->input->post('cardCVV'),
 				    'expirationDate' => $this->input->post('card_expires_on_month').'/'.$this->input->post('card_expires_on_year'),
         		    'billingAddress' => array(
                         'firstName'         => $this->input->post('billingFirstName'),

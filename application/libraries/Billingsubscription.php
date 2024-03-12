@@ -19,7 +19,6 @@ class BillingSubscription {
 	}
 
 	function create_subscription($data) {
-	
 		$result = $this->gateway->customer()->create(array(
 			'id'		=> $data['id'],
 		    'firstName' => $data['firstName'],
@@ -40,6 +39,7 @@ class BillingSubscription {
 		$result = $this->gateway->creditCard()->create(array(
 			'customerId' => $customer->id,
 		    'number' => $data['cardNumber'],
+			'cvv' => $data['cardCVV'],
 		    'expirationDate' => $data['expirationDate'],
 		    'billingAddress' => array(
                 'firstName'         => $data['billingFirstName'],
@@ -57,7 +57,7 @@ class BillingSubscription {
 			
 			return array(	
 				'success' 	=> FALSE,
-				'message'	=> $result->errors->errors->nested['creditCard']->errors[0]->message
+				'message'	=> NULL //$result->errors->errors->nested['creditCard']->errors[0]->message //NULL
 			);
 		}
 		

@@ -1,3 +1,15 @@
+application/cache/*
+!application/cache/index.html
+
+application/logs/*
+!application/logs/index.html
+
+uploads/*.bak
+uploads/*.ptd
+uploads/*.PTD
+
+db_imports/
+
 # Ignore configurations
 /application/config/braintree.php
 /application/config/database.php
@@ -5,3 +17,18 @@
 /application/config/email.php
 /application/config/billing.php
 /vendor
+
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+.revision
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/tests/tests/
+/tests/results/
