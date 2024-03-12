@@ -78,7 +78,7 @@
 			<?php $count = 0;?>
 			<?php foreach ($table_data->result() as $row) { ?>
 				<?php if($row->type=='move'){?>
-					<?php $count++?>
+					<?php $count++; $slot_id = null; ?>
 		
 					<tr class="full_row" id="item_<?=$row->item_id?>">
 						<td><?=$row->transfer_date==null ? '' : date('m/d/Y g:i A',$row->transfer_date)?></td>
@@ -133,7 +133,7 @@
 				<?php $count = 0;?>
 				<?php foreach ($table_data->result() as $row) { ?>
 					<?php if($row->type=='merge' && $row->merge_into == 0){?>
-						<?php $count++?>
+						<?php $count++; $slot_id = null; ?>
 		
 						<tr class="full_row" id="item_<?=$row->item_id?>">
 						<td><?=$row->transfer_date==null ? '' : date('m/d/Y g:i A',$row->transfer_date)?></td>
@@ -195,7 +195,7 @@
 		<?php $count = 0;?>
 		<?php foreach ($table_data->result() as $row) { ?>
 			<?php if($row->type!='merge' && $row->type=='dupe'){?>
-				<?php $count++?>
+				<?php $count++; $slot_id = null; ?>
 	
 				<tr class="full_row" id="item_<?=$row->item_id?>">
 					<td>
@@ -205,7 +205,7 @@
 					<?php
 						$items = $this->Item_model->get_from_location($row->origin_location_id);
 						foreach($items->result() as $item){
-							$slot_id='';
+							//$slot_id='';
 								//$slot_id = $item->slot_num;
 								//$row->item_id
 								$slot_id=$this->Item_model->get_by_id($row->item_id)->slot_num;
@@ -262,7 +262,7 @@
 		<?php $count = 0;?>
 		<?php foreach ($table_data->result() as $row) { ?>
 			<?php if($row->type!='merge' && $row->type=='delete'){?>
-				<?php $count++?>
+				<?php $count++; $slot_id = null; ?>
 	
 				<tr class="full_row" id="item_<?=$row->item_id?>">
 					<td>

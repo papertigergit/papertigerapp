@@ -362,10 +362,11 @@ class People extends CI_Controller {
 		
 		//only validate password field if it isnt blank
 		if($this->input->post('password') != "") {
+
 			$this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]');
 			$this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'trim|min_length[6]|matches[password]');
 
-			// $this->form_validation->set_rules('password', 'Password', 'min_length[6]|matches[password_confirmation]');
+			//$this->form_validation->set_rules('password', 'Password', 'min_length[6]|matches[password_confirmation]');
 			$password = sha1($this->input->post('password').$this->config->item('encryption_key'));
 		} else {
 			$password = NULL;
@@ -586,7 +587,7 @@ class People extends CI_Controller {
 		
 		$this->form_validation->set_rules('first_name', 'First Name', 'required|max_length[12]|trim');
 		$this->form_validation->set_rules('last_name', 'Last Name', 'required|max_length[12]|trim');
-		$this->form_validation->set_rules('email', 'Email', 'required|max_length[30]|trim|valid_email|callback_email_check');
+		$this->form_validation->set_rules('email', 'Email', 'required|max_length[35]|trim|valid_email|callback_email_check');
 	}
 	
 	function _user_edit_validation() {

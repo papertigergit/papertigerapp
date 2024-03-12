@@ -272,6 +272,7 @@ class Signup extends CI_Controller {
 							'package'           => $package->name,
 							'companyName'		=> htmlspecialchars($signup['company_name']),
 							'cardNumber'		=> $this->input->post('ccnumber'),
+							'cardCVV'			=> $this->input->post('card_cvv'),
 							'expirationDate'	=> $this->input->post('card_expires_on_month')."/".$this->input->post('card_expires_on_year'),
 							'firstName'			=> htmlspecialchars($signup['first_name']),
 							'lastName'			=> htmlspecialchars($signup['last_name']),
@@ -290,7 +291,7 @@ class Signup extends CI_Controller {
 				$subscription = $this->billingsubscription->create_subscription($data);
 			} catch (Exception $e) {
 				$subscription['success'] = FALSE;
-				$subscription['message'] = 'An unexpected error occurred when processing your credit card. Please ensure all your information is correct and try again.';
+				$subscription['message'] = 'An unexpected error occurred when processing your credit card. Please ensure all your information is correct and try again.' . json_encode($e);
 			}
 			
 					
@@ -343,7 +344,7 @@ class Signup extends CI_Controller {
 /* 					We have an error back from the billing api, lets tell the user */
 					$vdata['billing_error'] = $subscription['message'];
 				} else {
-					$vdata['billing_error'] = 'An unexpected error occurred when processing your account. Please try again in a few hours.';
+					$vdata['billing_error'] = 'D - An unexpected error occurred when processing your account. Please try again in a few hours.' . json_encode($subscription);
 				}
 
 				$this->load->view('signup/header', $data);	
@@ -454,6 +455,7 @@ class Signup extends CI_Controller {
 		$this->form_validation->set_rules('ccnumber', 'Credit Card Number', 'trim|required');
 		$this->form_validation->set_rules('card_expires_on_month', 'Credit Card Expiration Month', 'trim|required');
 		$this->form_validation->set_rules('card_expires_on_year', 'Credit Card Expiration Year', 'trim|required|exact_length[4]');
+		$this->form_validation->set_rules('card_cvv', 'Credit Card CVV', 'trim|required');
 		
     	$this->form_validation->set_rules('billingFirstName', 'First Name', 'trim|required');
     	$this->form_validation->set_rules('billingLastName', 'Last Name', 'trim|required');

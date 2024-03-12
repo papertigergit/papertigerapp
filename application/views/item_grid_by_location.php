@@ -399,7 +399,7 @@ switch ($order_by) {
 	     }
 
 	 for($i = $start_slot; $i>=$end_slot_for_desc;$i--){ ?>
-      <?php if(sizeof($next_row)>0 && $next_row->slot_num == $i){?>
+      <?php if(isset($next_row) && $next_row->slot_num == $i){?>
         <tr class="full_row<?= (($modified_rows!==FALSE) && in_array($next_row->id, $modified_rows))?' modified_row':''?>" id="item_<?=$next_row->id?>">
           <td class="first_column">
           <span id="item-<?php echo $i.'-'.$next_row->id; ?>" rel="used"></span>

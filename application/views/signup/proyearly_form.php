@@ -178,6 +178,12 @@
                         
                         </td>
                     </tr>
+					
+					<tr>
+                        <td class="name_label"><label for="card_number">CVV</label></td>
+						
+                        <td class="name_input"><input class="transaction_field" id="card_cvv" maxlength="4" name="card_cvv" size="4" type="text" /></td>
+                    </tr>
                 </table>
                 <br /><br />
             </div>

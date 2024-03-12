@@ -14,7 +14,12 @@ class Indexing_client extends CI_Controller {
 		if($remote_addr == "127.0.0.1"): // only allow local execution by cron
 			$pte_pluto_username=$this->config->item('pte_pluto_username');
 			$pte_pluto_password=$this->config->item('pte_pluto_password');
-			$soap_client = new SoapClient();
+			$soap_client = new SoapClient(
+						"http://ec2-174-129-14-171.compute-1.amazonaws.com:8080/pte_pluto/services/Get_files_from_s3?wsdl",
+						array ( 'trace' => true,
+							'exceptions' => true,
+							)
+						);
 			$file=$this->Digital_files_model->get_by_indexing_status(0,1)->result_array();
 			$file_data = array(
 				'username' => $pte_pluto_username,

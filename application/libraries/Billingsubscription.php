@@ -19,7 +19,7 @@ class BillingSubscription {
 	}
 
 	function create_subscription($data) {
-	
+		log_message('error', '--- STARTING BRAINTREE PAYMENT ---');
 		$result = $this->gateway->customer()->create(array(
 			'id'		=> $data['id'],
 		    'firstName' => $data['firstName'],
@@ -29,6 +29,7 @@ class BillingSubscription {
 		));
 
 		if( ! $result->success ) {
+			log_message('error', 'CUSTOMER CREATION RESULT: ' . print_r($result, TRUE) );
 			return array(
 				'success' => FALSE,
 				'message' => NULL
@@ -40,6 +41,7 @@ class BillingSubscription {
 		$result = $this->gateway->creditCard()->create(array(
 			'customerId' => $customer->id,
 		    'number' => $data['cardNumber'],
+			'cvv' => $data['cardCVV'],
 		    'expirationDate' => $data['expirationDate'],
 		    'billingAddress' => array(
                 'firstName'         => $data['billingFirstName'],
@@ -53,11 +55,13 @@ class BillingSubscription {
 		));
 		
 		if( ! $result->success ) {
+			log_message('error', 'CREDIT CARD CREATION RESULT: ' . print_r($result, TRUE) );
+			log_message('error', 'CUSTOMER DATA: ' . print_r($data, TRUE) );
 			$this->gateway->customer()->delete($data['id']);
 			
 			return array(	
 				'success' 	=> FALSE,
-				'message'	=> $result->errors->errors->nested['creditCard']->errors[0]->message
+				'message'	=> NULL //$result->errors->errors->nested['creditCard']->errors[0]->message //NULL
 			);
 		}
 		
@@ -71,6 +75,8 @@ class BillingSubscription {
 		));
 
 		if( ! $result->success ) {
+			log_message('error', 'SUBSCRIPTION CREATION RESULT: ' . print_r($result, TRUE) );
+			log_message('error', 'CUSTOMER DATA: ' . print_r($data, TRUE) );
 			$this->gateway->customer()->delete($data['id']);
 			$this->gateway->creditCard()->delete($creditCard->token);
 			
@@ -81,6 +87,7 @@ class BillingSubscription {
 		}
 
 		$subscription = $result->subscription;
+		log_message('error', '--- ENDING BRAINTREE PAYMENT ---');
 
 		return array(	'success'			=> TRUE,
 						'subscription_id'	=> $subscription->id,

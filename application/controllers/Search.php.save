@@ -119,8 +119,8 @@ class Search extends MY_Controller {
                 $google_users_data=$google_users->result_array();
                 $array = array('access_token' => $google_users_data[0]['oauth_token'], 'refresh_token' => $google_users_data[0]['oauth_token_secret']);
                 $saved_oauth_token = json_encode($array);
-                $client_id = '';
-                $client_secret = '';
+                $client_id = '553842701572-oodpnm31hq3ov1coj1jocrnqejbd9m5u.apps.googleusercontent.com';
+                $client_secret = 'uoCLPocQxZnsOeG0dhzkaYUH';
                 $client = new Google_Client();
                 $client->setClientId($client_id);
                 $client->setClientSecret($client_secret);

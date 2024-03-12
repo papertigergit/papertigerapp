@@ -147,7 +147,7 @@ class Item_model extends CI_Model {
 		
 		//concat query
 		//SELECT `items`.*, `pending_transfers`.`destination_location_id`, `pending_transfers`.`type`, `pending_transfers`.`merge_into`, `categories`.`name` as category, Concat(replace(replace(replace(replace(pending_transfers.type,'delete','Pending Toss'),'dupe','Pending Duplication'),'merge','Merge'),'move','Transfer'),' ', pending_transfers.destination_location_id) as status FROM (`items`) LEFT JOIN `pending_transfers` ON `pending_transfers`.`item_id` = `items`.`id` LEFT JOIN `categories` ON `categories`.`id` = `items`.`category_id` WHERE `location_id` = '20672' ORDER BY `slot_num` asc LIMIT 50;
-		$this->db->select('items.*, pending_transfers.destination_location_id, pending_transfers.type, pending_transfers.merge_into, categories.name as category')->from('items')->where(array('location_id' => $loc_id))->order_by($order_by,$order);
+		$this->db->select('items.*, pending_transfers.destination_location_id, pending_transfers.type, pending_transfers.merge_into, categories.name as category')->from('items')->where(array('location_id' => $loc_id))->order_by($order_by,$order)->distinct();
 		$this->db->join('pending_transfers', 'pending_transfers.item_id = items.id', 'left');
 		$this->db->join('categories','categories.id = items.category_id', 'left');
 		if($order_by!="slot_num") {

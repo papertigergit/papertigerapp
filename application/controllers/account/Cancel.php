@@ -57,8 +57,8 @@ class Cancel extends CI_Controller {
                 'org_id'          => $this->user_data['organization_id']
             );        
 	//mail chimp integration
-		$api_key='';
-		$listId = "";
+		$api_key='1ddf218cb55d3d51f6be533b72fc81ae-us1';
+		$listId = "a31d451a83";
 		$api = new MCAPI($api_key);
 
 		$my_email=$this->user_data['email_address'];

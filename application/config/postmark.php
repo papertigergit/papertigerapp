@@ -11,7 +11,7 @@
 | next to the desiered server, then clicking 'Settings & API Credentials'
 |
 */
-$config['api_key'] = '';
+$config['api_key'] = '06f977ae-5c18-4ab3-a29d-b3169193d2a4';
  
 /*
 |--------------------------------------------------------------------------

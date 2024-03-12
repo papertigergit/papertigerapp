@@ -129,8 +129,8 @@ class Search extends CI_Controller {
                 
                 $saved_oauth_token = json_encode($array);
 
-                $client_id = '';
-                $client_secret = '';
+                $client_id = '553842701572-trhaovtktvh60nvk9jkc7iem9t39i41g.apps.googleusercontent.com';
+                $client_secret = 'kWfCHAih7DWwYU19JJr9H5eh';
                 $client = new Google_Client();
                 $client->setClientId($client_id);
                 $client->setClientSecret($client_secret);

@@ -13,9 +13,9 @@ class Imports extends CI_Controller {
 	}
 	
 	function index(){
-		
+		// prev value was: 3.82.66.154 | 35.168.29.158
 		$remote_address = $_SERVER['REMOTE_ADDR'];
-		$conversion_server_address = array();
+		$conversion_server_address = array("50.17.213.37","104.6.6.17","80.90.82.59","75.52.82.18");
 		if(!in_array($remote_address,$conversion_server_address)) {
 			exit(die("Outside DMZ!"));
 		}
@@ -42,14 +42,14 @@ class Imports extends CI_Controller {
 			$current_env=site_url();
 			if($current_env=="http://app.thepapertiger.com/")
 			{
-				curl_setopt($ch, CURLOPT_URL,''.$filename);
+				curl_setopt($ch, CURLOPT_URL,'http://50.17.213.37/ConversionFiles/Output/'.$filename);
 			}
 			elseif($current_env=="http://appdev2.thepapertiger.com/")
 			{
-				curl_setopt($ch, CURLOPT_URL,''.$filename);
+				curl_setopt($ch, CURLOPT_URL,'http://50.17.213.37/ConversionFilesTest/Output/'.$filename);
 			}
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_USERPWD, '');
+			curl_setopt($ch, CURLOPT_USERPWD, 'ptonline:800PT-it0795');
 			$csv =  curl_exec($ch);
 			if (!write_file('db_imports/'.$filename, $csv)) {
 				$this->Database_model->mark_for_error($db_id);
@@ -184,9 +184,9 @@ class Imports extends CI_Controller {
 			//logic to send imports to correct environment based on where they came from!
 
 			$current_env = site_url();
-      //Conversion Server Internal Amazon IP
-      $conn = ssh2_connect();
-      ssh2_auth_password($conn, '', '');
+      //Conversion Server Internal Amazon IP: prev: 35.168.29.158
+      $conn = ssh2_connect('50.17.213.37', 22);
+      ssh2_auth_password($conn, 'ptonline', '800PT-it0795');
 			if ($current_env == "http://appdev2.thepapertiger.com/") {
         ssh2_scp_send($conn, $data['full_path'], '/cygdrive/c/Inetpub/wwwroot/PaperTigerNet/ConversionFilesTest/'.$data['file_name']);
 			}
