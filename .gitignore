@@ -23,6 +23,7 @@ db_imports/
 /nbproject/
 .idea/*
 .revision
+.editorconfig
 
 ## Sublime Text cache files
 *.tmlanguage.cache
