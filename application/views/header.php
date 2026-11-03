@@ -270,7 +270,8 @@ $reminder_status=$this->Settings_model->get_all();
   <li id="browse_tab"><a href="<?= site_url(); ?>">Dashboard</a></li>
 <?php 
 	$dashboard_uri = "dashboard";
-	$uri_segment = $this->uri->segment(1,0); 
+	// no first segment = the dashboard (default controller); PHP 7 only matched it because 0 == "dashboard"
+	$uri_segment = $this->uri->segment(1,$dashboard_uri);
 ?>
 <?php if($packages->num_rows() == 0): ?>
 <?php

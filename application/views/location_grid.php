@@ -106,7 +106,7 @@ endif;
 				$review_interval=$row->review_interval_num." ".$row->review_interval_string;
 			}
 			?>
-			<td class="location_reviewDate centered"><?=$review_interval==0?'&nbsp;':$review_interval?></td>
+			<td class="location_reviewDate centered"><?php /* (float): PHP 7's numeric comparison, so '' still shows &nbsp; */ ?><?=(float) $review_interval==0?'&nbsp;':$review_interval?></td>
 		</tr>
 <?php }?>
 	</tbody>
