@@ -50,7 +50,8 @@ class Reset_email extends CI_Controller {
 						if($user->row()->sha1_password === sha1($this->input->post('password').$this->config->item('encryption_key')))
 						{	
 							$organization_data = $this->organization_model->get_organization($user->row()->organization_id);
-							if($organization_data->row()->subscription_id != 0){
+							// (float): keep PHP 7's numeric comparison - '' and IDs starting with a letter skip Braintree
+							if((float) $organization_data->row()->subscription_id != 0){
 
 								// let's load up Braintreezle
 								require_once('./vendor/braintree/braintree_php/lib/Braintree.php');

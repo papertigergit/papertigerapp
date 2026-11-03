@@ -170,7 +170,9 @@ class Authentication {
 			// beta testers didn't to start...
 			// CHECK OUT STATUZZ
 			
-			if( $organization->subscription_id != 0) {
+			// PHP 7 compared this string with 0 as a number, so '' and IDs starting with a letter
+			// never reached Braintree; the (float) cast keeps exactly that on PHP 8.
+			if( (float) $organization->subscription_id != 0) {
 			
 				require_once('./vendor/braintree/braintree_php/lib/Braintree.php');
 				$this->CI->config->load('braintree');

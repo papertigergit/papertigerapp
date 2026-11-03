@@ -6,7 +6,8 @@ class Upgrade extends CI_Controller {
 		parent::__construct();
 		include APPPATH.'helpers/mcapiclass_helper.php';  
 		
-		if( $this->organization_data->subscription_id > 0) {
+		// (float): keep PHP 7's numeric comparison - '' and IDs starting with a letter skip Braintree
+		if( (float) $this->organization_data->subscription_id > 0) {
 		
 			require_once('./vendor/braintree/braintree_php/lib/Braintree.php');
 			$this->config->load('braintree');
