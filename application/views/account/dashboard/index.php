@@ -23,7 +23,7 @@
 					</div>
 					<div id="section_title_right">
 					   <?php if($this->organization_data->subscription_id != "0"): ?>
-                            Next charge is $<?=$this->subscription_data->nextBillAmount?> on <?php echo date_format($this->subscription_data->nextBillingDate, "d M Y"); ?> on <?=$cardType?? "" ?> <?=$cardLastFour?? "" ?> (<a href="<?=site_url();?>account/billing" rel="facebox nm">Update Billing Info</a>)
+                            Next charge is $<?=$this->subscription_data->nextBillAmount?> on <?php /* no subscription: PHP 7's date_format(null) printed nothing, PHP 8 throws */ echo ($this->subscription_data->nextBillingDate ?? null) instanceof DateTimeInterface ? date_format($this->subscription_data->nextBillingDate, "d M Y") : ''; ?> on <?=$cardType?? "" ?> <?=$cardLastFour?? "" ?> (<a href="<?=site_url();?>account/billing" rel="facebox nm">Update Billing Info</a>)
 				        <?php endif; ?>
 					</div>
 					<div class="clear"></div>
