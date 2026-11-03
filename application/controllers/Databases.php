@@ -38,8 +38,6 @@ class Databases extends CI_Controller {
     $this->load->model(array('Database_model', 'user_model'));
     global $user_data;
     $user_data = $this->session->userdata('user_data');
-    include APPPATH.'libraries/PHPExcel.php';  
-    include APPPATH.'libraries/PHPExcel/Writer/Excel2007.php';  
     
   //  $this->authentication->require_authentication();
   }
@@ -497,6 +495,9 @@ $this->authentication->require_authentication();
       $this->load->model("trash_model");
       
       $databasename = $this->Database_model->get_by_id($this->session->userdata('database_id'))->name;
+      // loaded here rather than in the constructor: PHPExcel does not compile on PHP 8, and only this export uses it
+      include APPPATH.'libraries/PHPExcel.php';
+      include APPPATH.'libraries/PHPExcel/Writer/Excel2007.php';
       $objPHPExcel = new PHPExcel();
       $time_now=date('m/d/Y g:i:s A');
       //write meta data
