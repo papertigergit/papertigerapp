@@ -6,7 +6,7 @@ if ( ! function_exists('diff'))
 
 function diff($old, $new){
 	if(!defined('maxlen')){
-		$maxlen='';
+		$maxlen=0;	// was '': PHP 7 treated '' == 0 as true, which ends the recursion; PHP 8 does not
 	}
         foreach($old as $oindex => $ovalue){
                 $nkeys = array_keys($new, $ovalue);

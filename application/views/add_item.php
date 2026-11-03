@@ -126,15 +126,16 @@
 				</div>
 				<?php
                                $review_action_date='';
-                                if($this_location->next_review == 0 && $this_location->review_interval_string == 0)
+                                // (float): review_interval_string is text ('months', '', ...), which PHP 7 compared with 0 as the number 0
+                                if($this_location->next_review == 0 && (float) $this_location->review_interval_string == 0)
                                 {   
                                         $default_review_date='';
                                 }   
-                                else if($this_location->next_review != 0 && $this_location->review_interval_string == 0)
+                                else if($this_location->next_review != 0 && (float) $this_location->review_interval_string == 0)
                                 {   
 					$default_review_date=date("m/d/Y",$this_location->next_review);
                                 }   
-                                else if($this_location->next_review == 0 && $this_location->review_interval_string != 0)
+                                else if($this_location->next_review == 0 && (float) $this_location->review_interval_string != 0)
 				{
 					$default_review_date=date("m/d/Y",strtotime('+'.$this_location->review_interval_number." ".$this_location->review_interval_string));
 				}
