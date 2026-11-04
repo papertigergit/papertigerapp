@@ -279,7 +279,7 @@ class Curl {
 		}
 
 		// Only set follow location if not running securely
-		if ( ! ini_get('safe_mode') && !ini_get('open_basedir'))
+		if ( ! ini_get('open_basedir'))	// safe_mode was removed in PHP 5.4; ini_get('safe_mode') is always false
 		{
 			// Ok, follow location is not set already so lets set it to true
 			if ( ! isset($this->options[CURLOPT_FOLLOWLOCATION]))

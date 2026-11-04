@@ -1541,7 +1541,6 @@ class MCAPI {
         
         list($throw, $response) = explode("\r\n\r\n", $response, 2);
         
-        if(ini_get("magic_quotes_runtime")) $response = stripslashes($response);
         
         $serial = unserialize($response);
         if($response && $serial === false) {
