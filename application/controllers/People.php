@@ -50,7 +50,7 @@ class People extends CI_Controller {
 		if($this->authentication->get_level() == 'admin') {
 			$this->load->view('people/admin_index', $data);
 		}else {
-			$this->load->view('people/me');	
+			redirect('people/me');	// the people/me view never existed (an error page on every PHP version); me() is the user's own page
 		}
 	
 		$this->load->view('footer');
