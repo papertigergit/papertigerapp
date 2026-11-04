@@ -521,7 +521,7 @@ echo "";
 										if($this->input->post('location')){
 										foreach($this->input->post('location') as $selected_location)
 										{
-											if($selected_location==$loc[id])
+											if($selected_location==$loc['id'])
 											{
 												$is_selected="selected=\"selected\"";
 												echo "";
@@ -554,7 +554,7 @@ echo "";
 										if($this->input->post('category')){
 										foreach($this->input->post('category') as $selected_category)
 										{
-											if($selected_category==$category[id])
+											if($selected_category==$category['id'])
 											{
 												$is_selected="selected=\"selected\"";
 											}

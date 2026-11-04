@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors',0); 
-error_reporting('NONE');
+error_reporting(0); // was error_reporting('NONE'): PHP 7 read it as 0, PHP 8 throws a TypeError
 ?>
 
 <style>

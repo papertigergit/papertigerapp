@@ -634,7 +634,7 @@ if ($has_expert == '0'){ ?>
               $last_name=$this->user_data['last_name'];
             }
 
-            $action_date=date("m/d/y",$key['action_time']);?>
+            $action_date=date("m/d/y",(int) $key['action_time']);?>
 
             <tr style=" border: none; border-bottom: solid 1px #efefef;">
               <td class="activity_type" style="vertical-align:middle; border: none;"><span class="database" style="display:block; padding:3px; text-align:right; background:#fe6914; color:white;">Database</span></td>
@@ -675,7 +675,7 @@ if ($has_expert == '0'){ ?>
               $last_name=$names->last_name;
             }
 
-            $action_date=date("m/d/y",$key['action_time']);?>
+            $action_date=date("m/d/y",(int) $key['action_time']);?>
             
             <tr style=" border: none; border-bottom: solid 1px #efefef;">
               <td class="activity_type" style="vertical-align:middle; border: none;"><span class="location" style="display:block; padding:3px; text-align:right; background:#2ba4d9; color:white;">Location</span></td>
@@ -713,7 +713,7 @@ if ($has_expert == '0'){ ?>
                 $first_name=$names->first_name;
                 $last_name=$names->last_name;
               }
-            $action_date=date("m/d/y",$key['action_time']);?>
+            $action_date=date("m/d/y",(int) $key['action_time']);?>
             <tr style=" border: none; border-bottom: solid 1px #efefef;">
               <td class="activity_type" style="vertical-align:middle; border: none;"><span class="category" style="display:block; padding:3px; text-align:right; background:#e94148; color:white;">Category</span></td>
               <td class="activity_action" style="vertical-align:middle; border: none;">"
@@ -786,7 +786,7 @@ if ($has_expert == '0'){ ?>
                 $first_name=$names->first_name;
                 $last_name=$names->last_name;
             }
-            $action_date=date("m/d/y",$key['action_time']);?>
+            $action_date=date("m/d/y",(int) $key['action_time']);?>
             <tr style=" border: none; border-bottom: solid 1px #efefef;">
               <td class="activity_type" style="vertical-align:middle; border: none;"><span class="item" style="display:block; padding:3px; text-align:right; background:#3da77f; color:white;">Item</span></td>
               <td class="activity_action" style="vertical-align:middle; border: none;">"
