@@ -495,10 +495,15 @@ $this->authentication->require_authentication();
       $this->load->model("trash_model");
       
       $databasename = $this->Database_model->get_by_id($this->session->userdata('database_id'))->name;
-      // loaded here rather than in the constructor: PHPExcel does not compile on PHP 8, and only this export uses it
-      include APPPATH.'libraries/PHPExcel.php';
-      include APPPATH.'libraries/PHPExcel/Writer/Excel2007.php';
-      $objPHPExcel = new PHPExcel();
+      // PhpSpreadsheet (Composer) replaces the bundled PHPExcel 1.7.6, which does not compile on PHP 8
+      require_once APPPATH.'../vendor/autoload.php';
+      // PhpSpreadsheet needs more memory than PHPExcel did (about 5 KB per exported item): let this request use up to 512M
+      $memory_limit = ini_get('memory_limit');
+      $memory_bytes = (int) $memory_limit * (['k' => 1024, 'm' => 1048576, 'g' => 1073741824][strtolower(substr($memory_limit, -1))] ?? 1);
+      if ($memory_limit !== '-1' && $memory_bytes < 536870912) {
+        ini_set('memory_limit', '512M');
+      }
+      $objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
       $time_now=date('m/d/Y g:i:s A');
       //write meta data
       $objPHPExcel->getProperties()->setCreator($this->user_data['first_name']." ".$this->user_data['first_name']);
@@ -512,7 +517,9 @@ $this->authentication->require_authentication();
       foreach($export_locations->result_array() as $loc_result) {
         $objPHPExcel->setActiveSheetIndex($current_sheet);
         $sheet_title=GenerateSafeSheetName($loc_result['name']);
-        $objPHPExcel->getActiveSheet()->setTitle($sheet_title);
+        // Excel allows 31 characters in a sheet name (the bundled PHPExcel had that check commented out); column A keeps the full name.
+        // false: no scan of every cell for formulas naming the old title on each rename (quadratic; no exported value names a sheet)
+        $objPHPExcel->getActiveSheet()->setTitle(mb_substr($sheet_title, 0, 31), false);
             $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'Location');
             $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Item');
             $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Name');
@@ -536,7 +543,7 @@ $this->authentication->require_authentication();
 
                 //$objPHPExcel->getActiveSheet()->SetCellValue('D'.$current_item_index, utf8_encode($item_result['keywords']));
 		// Treat values as strings instead of formulae or disable calculation engine $objWriter->setPreCalculateFormulas(false); 
-		$objPHPExcel->getActiveSheet()->setCellValueExplicit('D'.$current_item_index, mb_convert_encoding((string) $item_result['keywords'], 'UTF-8', 'ISO-8859-1'));
+		$objPHPExcel->getActiveSheet()->setCellValueExplicit('D'.$current_item_index, mb_convert_encoding((string) $item_result['keywords'], 'UTF-8', 'ISO-8859-1'), \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
 
                 $objPHPExcel->getActiveSheet()->SetCellValue('E'.$current_item_index, mb_convert_encoding((string) $item_result['description'], 'UTF-8', 'ISO-8859-1'));
                 $objPHPExcel->getActiveSheet()->SetCellValue('F'.$current_item_index, mb_convert_encoding((string) $category_name, 'UTF-8', 'ISO-8859-1'));
@@ -546,16 +553,22 @@ $this->authentication->require_authentication();
         $objPHPExcel->createSheet();
         $current_sheet++;
       }
-      $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+      $objWriter = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($objPHPExcel);
 
       //$objWriter->setPreCalculateFormulas(false);
 
       //$objWriter->save("/tmp/file.xlsx");
+      // write to a temporary file first (as PHPExcel did), so a failure gives an error page, not a cut-off download;
+      // PHP deletes a tmpfile() at the end of the request, even after a fatal error
+      $excel_tmp_file = tmpfile();
+      $objWriter->save($excel_tmp_file);
       $excel_file_name=GenerateSafeFileName($databasename); 
       $excel_file_name=$excel_file_name.".xlsx";
       header('Content-type: application/ms-excel');
       header('Content-Disposition: attachment; filename='.$excel_file_name);
-      $objWriter->save('php://output');
+      rewind($excel_tmp_file);
+      fpassthru($excel_tmp_file);
+      fclose($excel_tmp_file);
     }
   }
   
