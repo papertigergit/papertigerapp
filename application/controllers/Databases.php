@@ -529,17 +529,18 @@ $this->authentication->require_authentication();
                 } else {
                   $action_date='';
                 }
-                $objPHPExcel->getActiveSheet()->SetCellValue('A'.$current_item_index, utf8_encode($sheet_title));
-                $objPHPExcel->getActiveSheet()->SetCellValue('B'.$current_item_index, utf8_encode($item_result['slot_num']));
-                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$current_item_index, utf8_encode($item_result['name']));
+                // mb_convert_encoding(ISO-8859-1 -> UTF-8) is what utf8_encode() did (deprecated in PHP 8.2); (string): null gave ''
+                $objPHPExcel->getActiveSheet()->SetCellValue('A'.$current_item_index, mb_convert_encoding((string) $sheet_title, 'UTF-8', 'ISO-8859-1'));
+                $objPHPExcel->getActiveSheet()->SetCellValue('B'.$current_item_index, mb_convert_encoding((string) $item_result['slot_num'], 'UTF-8', 'ISO-8859-1'));
+                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$current_item_index, mb_convert_encoding((string) $item_result['name'], 'UTF-8', 'ISO-8859-1'));
 
                 //$objPHPExcel->getActiveSheet()->SetCellValue('D'.$current_item_index, utf8_encode($item_result['keywords']));
 		// Treat values as strings instead of formulae or disable calculation engine $objWriter->setPreCalculateFormulas(false); 
-		$objPHPExcel->getActiveSheet()->setCellValueExplicit('D'.$current_item_index, utf8_encode($item_result['keywords']));
+		$objPHPExcel->getActiveSheet()->setCellValueExplicit('D'.$current_item_index, mb_convert_encoding((string) $item_result['keywords'], 'UTF-8', 'ISO-8859-1'));
 
-                $objPHPExcel->getActiveSheet()->SetCellValue('E'.$current_item_index, utf8_encode($item_result['description']));
-                $objPHPExcel->getActiveSheet()->SetCellValue('F'.$current_item_index, utf8_encode($category_name));
-                $objPHPExcel->getActiveSheet()->SetCellValue('G'.$current_item_index, utf8_encode($action_date));
+                $objPHPExcel->getActiveSheet()->SetCellValue('E'.$current_item_index, mb_convert_encoding((string) $item_result['description'], 'UTF-8', 'ISO-8859-1'));
+                $objPHPExcel->getActiveSheet()->SetCellValue('F'.$current_item_index, mb_convert_encoding((string) $category_name, 'UTF-8', 'ISO-8859-1'));
+                $objPHPExcel->getActiveSheet()->SetCellValue('G'.$current_item_index, mb_convert_encoding((string) $action_date, 'UTF-8', 'ISO-8859-1'));
               $current_item_index++;
               }
         $objPHPExcel->createSheet();
