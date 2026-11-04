@@ -2,11 +2,6 @@
 
 class Reminders_model extends CI_Model{
 
-	function __costruct(){
-		parent::__costruct();
-		$this->load->database();
-		$this->load->helper('date');
-	}
     	function get_location_permissions_by_user($user_id=null) {
 	    $this->db->select('location_id');
 	    $this->db->where('pto_umask >',0);
