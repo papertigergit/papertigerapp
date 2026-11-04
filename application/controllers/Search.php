@@ -214,7 +214,7 @@ if (isset($_GET['code']))
         global $user_data;
          
         if($this->input->post('search_string')){
-            $safe_string=mysql_real_escape_string($this->input->post('search_string'));
+            $safe_string=$this->db->escape_str($this->input->post('search_string'));	// as in index(); mysql_real_escape_string() was removed in PHP 7
             $this->session->set_userdata('search_string', $safe_string);
         }
         if($this->input->post('category')){
