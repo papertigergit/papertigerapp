@@ -3,6 +3,7 @@
 class Authentication {
 
 	var $CI;
+	var $user_data;	// set by rebuild_user_var(); declared because PHP 8.2+ deprecates undeclared properties
 
 	function __construct() {
 		$this->CI =& get_instance();

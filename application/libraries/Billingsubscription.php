@@ -1,6 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
 class BillingSubscription {
+
+	public $gateway;	// declared because PHP 8.2+ deprecates undeclared properties
 	
 	function __construct() {
 		global $CI;
