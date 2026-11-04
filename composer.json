@@ -12,11 +12,16 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"google/apiclient": "^2.0",
+		"google/apiclient": "^2.20",
 		"braintree/braintree_php": "^6.16",
 		"phpoffice/phpspreadsheet": "^5.10"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+	},
+	"config": {
+		"platform": {
+			"php": "8.3.36"
+		}
 	}
 }
