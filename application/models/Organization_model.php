@@ -7,7 +7,7 @@ class Organization_model extends CI_Model {
 		//indexes: id
     }
     
-    function create($name, $admin_user = FALSE, $package_id) {
+    function create($name, $admin_user, $package_id) {	// the default before a required parameter never applied (deprecated in PHP 8)
     	$data = array(	'name' 			=> $name, 
     					'package_id' 	=> $package_id,
 					'subscription_id'	=> "0",

@@ -6,7 +6,7 @@ class Api_calls_model extends CI_Model {
 			$this->load->database();
     }
     
-	function log_incoming($username=null,$password=null,$client_hash=null,$client_version=null,$computer_name,$os_string=null,$action=null,$remote_addr) {
+	function log_incoming($username,$password,$client_hash,$client_version,$computer_name,$os_string,$action,$remote_addr) {	// defaults before a required parameter never applied (deprecated in PHP 8)
 			$time_stamp=time();
 			$data = array(
 					'username'	=> $username,
@@ -68,7 +68,7 @@ class Api_calls_model extends CI_Model {
 			    }
 		    }
 	  }
-	  function create_session($user_id=null,$remote_addr=null,$os_string=null,$device_hash,$input_data=null){
+	  function create_session($user_id,$remote_addr,$os_string,$device_hash,$input_data=null){	// defaults before a required parameter never applied (deprecated in PHP 8)
 		  //destroy all sessions first before creating new sessions
 		  $destroy_id=$this->destroy_session($user_id,$device_hash);
 		  $time_stamp = time();
