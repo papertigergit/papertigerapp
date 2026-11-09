@@ -303,9 +303,8 @@ class HTTP_ConditionalGet {
         if (!isset($_SERVER['HTTP_IF_NONE_MATCH'])) {
             return false;
         }
-        $clientEtagList = get_magic_quotes_gpc()
-            ? stripslashes($_SERVER['HTTP_IF_NONE_MATCH'])
-            : $_SERVER['HTTP_IF_NONE_MATCH'];
+        // get_magic_quotes_gpc() always returned false since PHP 5.4 and is removed in PHP 8
+        $clientEtagList = $_SERVER['HTTP_IF_NONE_MATCH'];
         $clientEtags = explode(',', $clientEtagList);
         
         $compareTo = $this->normalizeEtag($this->_etag);
