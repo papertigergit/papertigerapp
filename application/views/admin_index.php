@@ -72,7 +72,6 @@ $('.choose_expert_profile').hide();
 <div class ="section">
 	<div class="form_divider choose_expert">
 	        <?php $q = $this->Organization_model->get_all_experts();
-	       echo $q;
 		foreach ($q->result() as $r){ ?>
 		<div class="expert_blurb">
 		<li>
