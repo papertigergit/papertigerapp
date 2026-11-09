@@ -1,7 +1,7 @@
 <?php
-class Authorizepost extends Controller {
+class Authorizepost extends CI_Controller {   // machine-to-machine callback from Authorize.net: no user, no MY_Controller account checks
 	function __construct() {
-		parent::Controller();
+		parent::__construct();
 
 		$code = 'orMvSpZbIi';
 				
