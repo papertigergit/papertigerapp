@@ -12,6 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 return array(
 	'hqx'	=>	array('application/mac-binhex40', 'application/mac-binhex', 'application/x-binhex40', 'application/x-mac-binhex40'),
 	'cpt'	=>	'application/mac-compactpro',
+	// PaperTiger database imports (Imports.php, allowed_types 'bak|ptd'): .ptd = Paper Tiger desktop database
+	// (Microsoft Access file), .bak = backup copy (finfo: application/octet-stream; inode/x-empty or application/x-empty when empty)
+	'ptd'	=>	array('application/x-msaccess', 'application/octet-stream', 'application/x-empty', 'inode/x-empty'),
+	'bak'	=>	array('application/octet-stream', 'application/x-msaccess', 'application/x-empty', 'inode/x-empty'),
 	'csv'	=>	array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain'),
 	'bin'	=>	array('application/macbinary', 'application/mac-binary', 'application/octet-stream', 'application/x-binary', 'application/x-macbinary'),
 	'dms'	=>	'application/octet-stream',
