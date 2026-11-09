@@ -24,6 +24,11 @@
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/sessions.html
  */
+/*
+ * PaperTiger: this is the CodeIgniter 1/2 session library (cookie + ci_sessions table) the app runs on.
+ * It used to sit in system/libraries/; it lives here since Phase 4 so that system/ can be a clean framework.
+ * Kept on purpose (plan Q4, option A); only the PHP 8 constructor fix (06d91b5) differs from the original.
+ */
 class CI_Session {
 
 	var $sess_encrypt_cookie		= FALSE;
@@ -754,5 +759,13 @@ class CI_Session {
 }
 // END Session Class
 
+/*
+ * The loader instantiates a library from application/libraries by its file name, and it does not look
+ * for MY_ extensions there. The app's session object has always been MY_Session (keep_flashdata()
+ * override), so load it here and give the loader the class name it expects. Same object behaviour.
+ */
+require_once __DIR__.'/MY_Session.php';
+
+class Session extends MY_Session {}
+
 /* End of file Session.php */
-/* Location: ./system/libraries/Session.php */
