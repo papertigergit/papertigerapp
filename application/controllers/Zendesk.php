@@ -4,7 +4,7 @@
 	http://www.zendesk.com/api/remote-authentication 
 */
 
-class Zendesk extends Controller {
+class Zendesk extends MY_Controller {
 
 	function index() {
 	
