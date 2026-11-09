@@ -4,7 +4,7 @@ class Calls extends MY_Controller {
 		parent::__construct();
 		$this->load->helper(array('url', 'text', 'file'));
 		$this->load->model(array('User_model','Api_calls_model','Digital_files_model'));
-		include(APPPATH.'libraries/nusoap.php');
+		require_once(APPPATH.'../vendor/autoload.php');   // nusoap: econea/nusoap (Composer), maintained for PHP 8
 	}
 	
 	function index(){
@@ -17,7 +17,7 @@ class Calls extends MY_Controller {
 	function auth() {
 		$soap = new soap_server;
 		$soap->configureWSDL('AddService',site_url());
-		$soap->wsdl->schemaTargetNamespace = site_url.'/service/calls/auth';
+		$soap->wsdl->schemaTargetNamespace = 'site_url'.'/service/calls/auth';   // PHP 7 read the bare constant site_url as the text 'site_url' (PHP 8: Error); same WSDL as before
 		$soap->register(
 			'authentication',
 			array('username' => 'xsd:string', 'password' => 'xsd:string', 'client_hash' => 'xsd:string', 'client_version' => 'xsd:string', 'computer_name' => 'xsd:string', 'os_string' => 'xsd:string', 'action' => 'xsd:string'),
@@ -142,7 +142,7 @@ class Calls extends MY_Controller {
 	function files() {
 		$soap = new soap_server;
 		$soap->configureWSDL('AddService',site_url());
-		$soap->wsdl->schemaTargetNamespace = site_url.'/service/calls/files';
+		$soap->wsdl->schemaTargetNamespace = 'site_url'.'/service/calls/files';   // PHP 7 read the bare constant site_url as the text 'site_url' (PHP 8: Error); same WSDL as before
 		$soap->register(
 			'get_acl',
 			array('username' => 'xsd:string','session_id' => 'xsd:string','file_hash' => 'xsd:string','original_file_name' => 'xsd:string','original_file_path' => 'xsd:string','file_type' => 'xsd:string','file_extension' => 'xsd:string','file_size' => 'xsd:string','date_created' => 'xsd:string'),
