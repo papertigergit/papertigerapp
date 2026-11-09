@@ -1,5 +1,5 @@
 <?php
-class Import_model extends CI_Model {
+class Import_model extends MY_Model {
 
     function __construct() {
 			parent::__construct();

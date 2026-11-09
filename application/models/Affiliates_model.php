@@ -1,6 +1,6 @@
 <?php
 
-class Affiliates_model extends CI_Model {
+class Affiliates_model extends MY_Model {
 
 
     function __construct() {

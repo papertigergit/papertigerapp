@@ -1,5 +1,5 @@
 <?php
-class Authentication_model extends CI_Model {
+class Authentication_model extends MY_Model {
 
     function __construct() {
 		parent::__construct();

@@ -1,5 +1,5 @@
 <?php
-class Permissions_model extends CI_Model {
+class Permissions_model extends MY_Model {
 
     function __construct() {
 			parent::__construct();

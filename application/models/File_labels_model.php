@@ -1,5 +1,5 @@
 <?php
-class File_labels_model extends CI_Model {
+class File_labels_model extends MY_Model {
 
     function __construct() {
 			parent::__();

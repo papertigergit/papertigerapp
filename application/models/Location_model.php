@@ -1,5 +1,5 @@
 <?php
-class Location_model extends CI_Model {
+class Location_model extends MY_Model {
 	function __construct() {
 		parent::__construct();
 		$this->load->database();

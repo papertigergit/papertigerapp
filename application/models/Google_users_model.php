@@ -1,6 +1,6 @@
 <?php
 
-class Google_users_model extends CI_Model {
+class Google_users_model extends MY_Model {
 
     function __construct() {
 			parent::__construct();

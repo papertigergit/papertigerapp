@@ -1,5 +1,5 @@
 <?php
-class Storage_model extends CI_Model {
+class Storage_model extends MY_Model {
 
     function __construct() {
 			parent::__construct();

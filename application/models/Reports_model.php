@@ -1,5 +1,5 @@
 <?php
-class Reports_model extends CI_Model {
+class Reports_model extends MY_Model {
     function __construct() {
 			parent::__construct();
 			$this->load->model(array('Location_model'));

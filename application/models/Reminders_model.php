@@ -1,6 +1,6 @@
 <?php
 
-class Reminders_model extends CI_Model{
+class Reminders_model extends MY_Model{
 
     	function get_location_permissions_by_user($user_id=null) {
 	    $this->db->select('location_id');

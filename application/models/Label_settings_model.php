@@ -1,6 +1,6 @@
 <?php
 
-class Label_settings_model extends CI_Model{
+class Label_settings_model extends MY_Model{
 
 	function __construct(){
 		parent::__construct();
