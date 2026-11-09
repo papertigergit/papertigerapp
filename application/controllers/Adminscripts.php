@@ -1,5 +1,5 @@
 <?php
-class Adminscripts extends CI_Controller {
+class Adminscripts extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

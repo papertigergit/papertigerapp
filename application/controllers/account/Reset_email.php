@@ -1,6 +1,6 @@
 <?php
 
-class Reset_email extends CI_Controller {
+class Reset_email extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

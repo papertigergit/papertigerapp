@@ -1,5 +1,5 @@
 <?php
-class Change_plan extends CI_Controller {
+class Change_plan extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

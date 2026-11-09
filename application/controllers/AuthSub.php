@@ -1,6 +1,6 @@
 <?php
 require_once(APPPATH.'libraries/oauth-php/OAuth.php');
-class AuthSub extends CI_Controller {
+class AuthSub extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

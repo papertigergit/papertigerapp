@@ -1,5 +1,5 @@
 <?php
-class Indexing_client extends CI_Controller {
+class Indexing_client extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

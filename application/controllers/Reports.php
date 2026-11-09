@@ -1,7 +1,7 @@
 <?php
 ini_set('memory_limit','128M');
 
-	class Reports extends CI_Controller{
+	class Reports extends MY_Controller{
 	
 		function __construct(){
 			parent::__construct();

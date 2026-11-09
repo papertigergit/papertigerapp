@@ -1,5 +1,5 @@
 <?php
-class People extends CI_Controller {
+class People extends MY_Controller {
 	
 	var $package;
 	

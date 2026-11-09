@@ -1,5 +1,5 @@
 <?php
-class Upload_file extends CI_Controller {
+class Upload_file extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

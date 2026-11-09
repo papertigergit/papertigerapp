@@ -1,6 +1,6 @@
 <?php 
 
-class Upgrade extends CI_Controller {
+class Upgrade extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

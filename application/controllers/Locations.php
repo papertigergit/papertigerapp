@@ -1,5 +1,5 @@
 <?php
-class Locations extends CI_Controller {
+class Locations extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

@@ -1,5 +1,5 @@
 <?php
-class Permissions extends CI_Controller {
+class Permissions extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

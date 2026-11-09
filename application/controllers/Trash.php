@@ -1,5 +1,5 @@
 <?php
-class Trash extends CI_Controller {
+class Trash extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

@@ -1,5 +1,5 @@
 <?php
-class Test_auth extends CI_Controller {
+class Test_auth extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 	}

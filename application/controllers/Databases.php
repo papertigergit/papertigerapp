@@ -29,7 +29,7 @@
     */
 
 
-class Databases extends CI_Controller {
+class Databases extends MY_Controller {
   function __construct() {
     parent::__construct();
     

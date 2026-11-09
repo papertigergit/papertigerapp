@@ -1,5 +1,5 @@
 <?php
-class Slots extends CI_Controller {
+class Slots extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

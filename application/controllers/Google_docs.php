@@ -1,6 +1,6 @@
 <?php
 require_once(APPPATH.'libraries/oauth-php/OAuth.php');
-class Google_docs extends CI_Controller {
+class Google_docs extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

@@ -1,5 +1,5 @@
 <?php
-class Messeges extends CI_Controller {
+class Messeges extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

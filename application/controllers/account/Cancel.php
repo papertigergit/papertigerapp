@@ -1,6 +1,6 @@
 <?php 
 
-class Cancel extends CI_Controller {
+class Cancel extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

@@ -1,6 +1,6 @@
 <?php
 require_once(APPPATH.'../vendor/autoload.php');
-class Search extends CI_Controller {
+class Search extends MY_Controller {
     function __construct() {
         parent::__construct();
          

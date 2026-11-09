@@ -1,5 +1,5 @@
 <?php
-class Affiliates extends CI_Controller {
+class Affiliates extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

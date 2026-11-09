@@ -1,6 +1,6 @@
 <?php
 
-class Billing extends CI_Controller {
+class Billing extends MY_Controller {
 
 
 	function __construct() {

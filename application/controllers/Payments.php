@@ -1,5 +1,5 @@
 <?php
-class Payments extends CI_Controller {
+class Payments extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

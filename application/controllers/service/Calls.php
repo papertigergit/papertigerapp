@@ -1,5 +1,5 @@
 <?php
-class Calls extends CI_Controller {
+class Calls extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->helper(array('url', 'text', 'file'));

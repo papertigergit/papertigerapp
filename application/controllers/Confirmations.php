@@ -1,5 +1,5 @@
 <?php
-class Confirmations extends CI_Controller {
+class Confirmations extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

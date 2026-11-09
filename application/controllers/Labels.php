@@ -1,5 +1,5 @@
 <?php
-    class Labels extends CI_Controller{
+    class Labels extends MY_Controller{
   
     function __construct(){
       parent::__construct();

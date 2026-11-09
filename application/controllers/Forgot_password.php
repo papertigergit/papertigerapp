@@ -1,6 +1,6 @@
 <?php
 
-class Forgot_password extends CI_Controller {
+class Forgot_password extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

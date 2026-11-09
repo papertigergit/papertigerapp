@@ -1,7 +1,7 @@
 <?php
 require_once(APPPATH.'libraries/Google/Auth/OAuth2.php');
 require_once(APPPATH.'../vendor/autoload.php');
-class Organization extends CI_Controller {
+class Organization extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

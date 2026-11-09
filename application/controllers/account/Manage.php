@@ -1,5 +1,5 @@
 <?php
-class  Manage extends CI_Controller {
+class  Manage extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model(array('Storage_model'));

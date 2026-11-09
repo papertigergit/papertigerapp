@@ -1,5 +1,5 @@
 <?php
-class Imports extends CI_Controller {
+class Imports extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		

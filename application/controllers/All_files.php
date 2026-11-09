@@ -1,5 +1,5 @@
 <?php
-class All_files extends CI_Controller {
+class All_files extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();

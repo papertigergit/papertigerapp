@@ -1,5 +1,5 @@
 <?php
-class Status extends CI_Controller {
+class Status extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
