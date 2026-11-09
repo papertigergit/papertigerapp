@@ -23,7 +23,7 @@ class Transfers_model extends MY_Model {
 			$user_locs[] = $loc->location_id;
 		}
 		if($user_locations->num_rows() > 0) {
-			$this->db->where_in('items.location_id',$user_locs);
+			$this->ci31_where_in('items.location_id',$user_locs);
 		} else {
 			$this->db->where('items.location_id',null);
 		}
@@ -142,7 +142,7 @@ class Transfers_model extends MY_Model {
 				}
 				
 			}
-			$this->db->where_in('id', $id_arr)->delete('pending_transfers');
+			$this->ci31_where_in('id', $id_arr)->delete('pending_transfers');
 			
 		$this->db->trans_complete();
 	}

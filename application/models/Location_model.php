@@ -76,7 +76,7 @@ class Location_model extends MY_Model {
   }
   
   function get_by_ids($ids){
-    	$this->db->where_in('id', $ids);
+    	$this->ci31_where_in('id', $ids);
     	return $this->db->get('locations');
     }
   
@@ -233,8 +233,8 @@ class Location_model extends MY_Model {
   
   function delete($locs){
   	$this->db->trans_start();
-  	$this->db->where_in('id', $locs)->delete('locations');
-  	$this->db->where_in('location_id', $locs)->delete('items');
+  	$this->ci31_where_in('id', $locs)->delete('locations');
+  	$this->ci31_where_in('location_id', $locs)->delete('items');
   	$this->db->trans_complete();
   }
   

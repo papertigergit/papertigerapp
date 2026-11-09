@@ -44,11 +44,11 @@ class Dashboard_model extends MY_Model {
 	    foreach($db_ids->result() as $key) {
 		    $this_db_ids[]=$key->database_id;
 	    }
-		    $this->db->where_in('database_id',$this_db_ids);
+		    $this->ci31_where_in('database_id',$this_db_ids);
 		    endif;
 	    endif;
 	    if(!$db_ids):
-		    $this->db->where_in('database_id',null);
+		    $this->ci31_where_in('database_id',null);
 	    endif;
 	    $query=$this->db->get('logs_databases');
 	    if($query):
@@ -77,7 +77,7 @@ class Dashboard_model extends MY_Model {
 			    foreach($loc_ids->result() as $key) {
 				    $this_loc_ids[]=$key->location_id;
 			    }
-		    $this->db->where_in('location_id',$this_loc_ids);
+		    $this->ci31_where_in('location_id',$this_loc_ids);
 		    endif;
 	    endif;
 	    if($loc_ids->num_rows() == 0):
@@ -116,7 +116,7 @@ class Dashboard_model extends MY_Model {
 		    foreach($cat_ids->result() as $key) {
 			    $this_cat_ids[] = $key->id;
 		    }
-		    $this->db->where_in('category_id',$this_cat_ids);	    
+		    $this->ci31_where_in('category_id',$this_cat_ids);	    
 		    endif;	    
 	    endif;	    
 	    if(!$cat_ids):
@@ -143,11 +143,11 @@ class Dashboard_model extends MY_Model {
 	    foreach($loc_ids->result() as $key) {
 		    $this_loc_ids[]=$key->location_id;
 	    }
-		    $this->db->where_in('location_id',$this_loc_ids);
+		    $this->ci31_where_in('location_id',$this_loc_ids);
 		    endif;
 	    endif;
 	    if(!$loc_ids):
-		    $this->db->where_in('location_id',null);
+		    $this->ci31_where_in('location_id',null);
 	    endif;
 	    $this->db->limit(15);
 	    $query=$this->db->get_where('logs_items');

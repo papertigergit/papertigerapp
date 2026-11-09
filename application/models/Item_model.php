@@ -40,7 +40,7 @@ class Item_model extends MY_Model {
 				'keywords' => $this->input->post('keywords'),
 				'description' => $this->input->post('notes')
 		);
-		$this->db->where_in('id', $item_ids);
+		$this->ci31_where_in('id', $item_ids);
 		$this->db->update('items', $data);
 	}
   	
@@ -91,7 +91,7 @@ class Item_model extends MY_Model {
 			$this->db->where('organization_id', $organization_id);
 		}
 		
-  		$this->db->where_in('id', $ids);
+  		$this->ci31_where_in('id', $ids);
   		return $this->db->get('items');
   }
 	
@@ -336,7 +336,7 @@ class Item_model extends MY_Model {
 			$user_locs[] = $loc->location_id;
 		}
 		if($user_locations->num_rows() > 0) {
-			$this->db->where_in('items.location_id',$user_locs);
+			$this->ci31_where_in('items.location_id',$user_locs);
 		} else {
 			$this->db->where('items.location_id',null);
 		}

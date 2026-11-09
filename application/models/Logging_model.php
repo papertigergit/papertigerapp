@@ -105,7 +105,7 @@ class Logging_model extends MY_Model {
 
 	 function locations($action_id,$location_ids) {
 		$user_data = $this->session->userdata('user_data');
-	          $this->db->where_in('id', $location_ids);
+	          $this->ci31_where_in('id', $location_ids);
 		  $locations_data=$this->db->get('locations');
 		 // print_r($locations_data->result());
 			foreach($locations_data->result() as $row)
@@ -132,7 +132,7 @@ class Logging_model extends MY_Model {
   }
 	 function categories($action_id,$category_ids) {
 		$user_data = $this->session->userdata('user_data');
-	          $this->db->where_in('id', $category_ids);
+	          $this->ci31_where_in('id', $category_ids);
 		  $category_data=$this->db->get('categories');
 			foreach($category_data->result() as $row)
 			{
@@ -155,7 +155,7 @@ class Logging_model extends MY_Model {
         function trash($action_id,$trash_id){
   	        $user_data = $this->session->userdata('user_data');
 		$database_id = $this->session->userdata('database_id');
-                $this->db->where_in('id', $trash_id);
+                $this->ci31_where_in('id', $trash_id);
                 $items_data=$this->db->get('trash');
  	foreach($items_data->result() as $row)
 	{   
@@ -183,7 +183,7 @@ class Logging_model extends MY_Model {
         function items($action_id,$loc_ids){
   	        $user_data = $this->session->userdata('user_data');
 		$database_id = $this->session->userdata('database_id');
-                $this->db->where_in('id', $loc_ids);
+                $this->ci31_where_in('id', $loc_ids);
                 $items_data=$this->db->get('items');
  	foreach($items_data->result() as $row)
 	{   
@@ -210,7 +210,7 @@ class Logging_model extends MY_Model {
 	{
 		$user_data = $this->session->userdata('user_data');
 		$database_id = $this->session->userdata('database_id');
-                $this->db->where_in('id', $items);
+                $this->ci31_where_in('id', $items);
                 $items_data=$this->db->get('items');
 	foreach($items_data->result() as $row)
 		{
@@ -232,7 +232,7 @@ class Logging_model extends MY_Model {
 		$time_now=time();
   	        $user_data = $this->session->userdata('user_data');
 		$database_id = $this->session->userdata('database_id');
-		$this->db->where_in('id',$uri_segment);
+		$this->ci31_where_in('id',$uri_segment);
 		$items_data=$this->db->get('pending_transfers');
                 foreach($items_data->result() as $row)
                      {       
@@ -297,7 +297,7 @@ class Logging_model extends MY_Model {
 			if($row->type=="merge")
 			{
 				//process source items first
-				$this->db->where_in('merge_into',$uri_segment);
+				$this->ci31_where_in('merge_into',$uri_segment);
 				$source_merge_data=$this->db->get('pending_transfers');
 				foreach($source_merge_data->result() as $source_data)
 				{

@@ -43,7 +43,42 @@ class MY_Model extends CI_Model {
 					$this->$key = $CI->$key;
 				}
 			}
-		}		
+		}
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * $this->db->where_in() / where_not_in() with CodeIgniter 3.1's handling of the values.
+	 *
+	 * The maintained fork (pocketarc/codeigniter) only accepts a non-empty array and throws otherwise. In 3.1.11 a
+	 * NULL list added no condition, a single value was used as a one-value list, and an empty list produced
+	 * "<key> IN()" (an SQL error). The models call these instead of the query builder methods, so the queries stay
+	 * exactly as they were (Phase 4). Returns the database object, so calls can be chained as before.
+	 */
+	public function ci31_where_in($key, $values)
+	{
+		return $this->_ci31_wh_in($key, $values, FALSE);
+	}
+
+	public function ci31_where_not_in($key, $values)
+	{
+		return $this->_ci31_wh_in($key, $values, TRUE);
+	}
+
+	protected function _ci31_wh_in($key, $values, $not)
+	{
+		$db = $this->db;
+		if ($key === NULL OR $values === NULL)
+		{
+			return $db;
+		}
+		is_array($values) OR $values = array($values);
+		if (count($values) === 0)
+		{
+			return $db->where($db->protect_identifiers($key).($not ? ' NOT' : '').' IN()', NULL, FALSE);
+		}
+		return $not ? $db->where_not_in($key, $values) : $db->where_in($key, $values);
 	}
 
 }

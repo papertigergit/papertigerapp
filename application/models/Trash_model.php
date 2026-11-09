@@ -20,7 +20,7 @@ class Trash_model extends MY_Model {
 			$user_locs[] = $loc->location_id;
 		}
 		if($user_locations->num_rows() > 0) {
-			$this->db->where_in('trash.previous_location_id',$user_locs);
+			$this->ci31_where_in('trash.previous_location_id',$user_locs);
 		} else {
 			$this->db->where('trash.previous_location_id',null);
 		}
@@ -32,12 +32,12 @@ class Trash_model extends MY_Model {
     }
     
     function get_by_ids($ids) {
-    	$this->db->where_in('id', $ids);
+    	$this->ci31_where_in('id', $ids);
     	return $this->db->get('trash');
     }
     
     function delete($ids){
-    	$this->db->where_in('id', $ids)->delete('trash');
+    	$this->ci31_where_in('id', $ids)->delete('trash');
     }
     
     function empty_trash(){

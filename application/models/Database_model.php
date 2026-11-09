@@ -36,11 +36,11 @@ class Database_model extends MY_Model {
 	    foreach($db_ids->result() as $key) {
 		    $this_db_ids[]=$key->database_id;
 	    }
-		    $this->db->where_in('id',$this_db_ids);
+		    $this->ci31_where_in('id',$this_db_ids);
 		    endif;
 	    endif;
 	    if(!$db_ids):
-		    $this->db->where_in('id',null);
+		    $this->ci31_where_in('id',null);
 	    endif;
 	    if($db_ids->num_rows() == 0):
 		    $this->db->where('id',null);

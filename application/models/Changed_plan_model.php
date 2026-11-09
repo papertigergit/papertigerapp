@@ -29,7 +29,7 @@ class Changed_plan_model extends MY_Model {
 	    $this->db->like('email_address',$email_address);
 	    $users=$this->db->get('users')->row()->organization_id;
 		
-		$this->db->where_in('id',$users);
+		$this->ci31_where_in('id',$users);
 	return $this->db->get('organizations');
 		
     }

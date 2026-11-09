@@ -14,7 +14,7 @@ class File_labels_model extends MY_Model {
 		    foreach($file_ids->result_array() as $key) {
 			$file_ids_arr[]=$key['id'];
 		    }
-		    $this->db->where_in('file_id',$file_ids_arr);
+		    $this->ci31_where_in('file_id',$file_ids_arr);
 		    $file_labels=$this->db->get('file_labels');
 		    return $file_labels;
 	    } else {

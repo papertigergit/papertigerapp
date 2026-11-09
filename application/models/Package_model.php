@@ -60,7 +60,7 @@ class Package_model extends MY_Model {
 	}
 	function check_network($package_id) {
 		$this->db->where('id',$package_id);
-		$this->db->where_not_in('max_users',1);
+		$this->ci31_where_not_in('max_users',1);
 		return $this->db->get('packages');
 	}
 	//$package_id = package organization is currently on

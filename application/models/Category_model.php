@@ -77,14 +77,14 @@ class Category_model extends MY_Model {
     }
     
     function get_by_ids($ids){
-    	$this->db->where_in('id', $ids);
+    	$this->ci31_where_in('id', $ids);
     	return $this->db->get('categories');
     }
     
     function delete($ids){
     	$this->db->trans_start();
-	    	$this->db->where_in('id', $ids)->delete('categories');
-    		$this->db->where_in('category_id', $ids)->update('items', array('category_id'=>0));
+	    	$this->ci31_where_in('id', $ids)->delete('categories');
+    		$this->ci31_where_in('category_id', $ids)->update('items', array('category_id'=>0));
     	$this->db->trans_complete();
     }
 }

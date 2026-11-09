@@ -25,7 +25,7 @@ class Reminders_model extends MY_Model{
 			$user_locs[] = $loc->location_id;
 		}
 		if($user_locations->num_rows() > 0) {
-			$this->db->where_in('locations.id',$user_locs);
+			$this->ci31_where_in('locations.id',$user_locs);
 		} else {
 			$this->db->where('locations.id',null);
 		}
@@ -76,12 +76,12 @@ class Reminders_model extends MY_Model{
 	}
 	
 	function update($data, $items){
-		$this->db->where_in('id',$items);
+		$this->ci31_where_in('id',$items);
 		$this->db->update('items', $data);
 	}
 	
 	function clear($data, $items){
-		$this->db->where_in('id',$items);
+		$this->ci31_where_in('id',$items);
 		$this->db->update('items', $data);
 	}
 
