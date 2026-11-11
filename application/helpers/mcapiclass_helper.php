@@ -29,14 +29,22 @@ class MCAPI {
     public $apiBase;            // https://<dc>.api.mailchimp.com/3.0, or config mailchimp_api_base
 
     private $categories = array();
+    private $list_override = '';    // config mailchimp_list_id (test accounts), replaces the list the page passes
 
     function __construct($username_or_apikey, $password = null, $secure = false) {
         $this->api_key = (string) $username_or_apikey;
+        if (function_exists('get_instance') && is_object($CI = get_instance())) {
+            $CI->config->load('mailchimp', FALSE, TRUE);
+            // The pages pass the live key and list written in their code; a test copy can replace both here.
+            if ($CI->config->item('mailchimp_api_key')) {
+                $this->api_key = (string) $CI->config->item('mailchimp_api_key');
+            }
+            $this->list_override = (string) $CI->config->item('mailchimp_list_id');
+        }
         $parts = explode('-', $this->api_key, 2);
         $dc = (isset($parts[1]) && preg_match('/^[a-z]{2,}[0-9]+$/', $parts[1])) ? $parts[1] : 'us1';
         $this->apiBase = 'https://' . $dc . '.api.mailchimp.com/3.0';
-        if (function_exists('get_instance') && is_object($CI = get_instance())) {
-            $CI->config->load('mailchimp', FALSE, TRUE);
+        if (isset($CI) && is_object($CI)) {
             $this->enabled = (bool) $CI->config->item('mailchimp_enabled');
             if ($CI->config->item('mailchimp_api_base')) {
                 $this->apiBase = rtrim($CI->config->item('mailchimp_api_base'), '/');
@@ -66,6 +74,7 @@ class MCAPI {
      * Subscribe an address, or update it when $update_existing is true. Returns true on success.
      */
     function listSubscribe($id, $email_address, $merge_vars, $email_type = 'html', $double_optin = true, $update_existing = false, $replace_interests = true, $send_welcome = false) {
+        $id = $this->list_id($id);
         if (!$this->start($email_address)) {
             return false;
         }
@@ -113,6 +122,7 @@ class MCAPI {
      * Unsubscribe an address (or archive it when $delete_member is true). Returns true on success.
      */
     function listUnsubscribe($id, $email_address, $delete_member = false, $send_goodbye = true, $send_notify = true) {
+        $id = $this->list_id($id);
         if (!$this->start($email_address)) {
             return false;
         }
@@ -129,6 +139,7 @@ class MCAPI {
      * Change an existing member's merge fields, groups ("GROUPINGS"), address ("EMAIL") or email type.
      */
     function listUpdateMember($id, $email_address, $merge_vars, $email_type = '', $replace_interests = true) {
+        $id = $this->list_id($id);
         if (!$this->start($email_address)) {
             return false;
         }
@@ -177,6 +188,10 @@ class MCAPI {
         $this->errorCode = $code;
         $this->errorMessage = $message;
         return false;
+    }
+
+    private function list_id($id) {
+        return $this->list_override !== '' ? $this->list_override : $id;
     }
 
     private function member_path($list, $email) {

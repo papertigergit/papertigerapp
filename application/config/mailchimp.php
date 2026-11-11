@@ -9,5 +9,9 @@
 |                     so they never write to the real list.
 | mailchimp_api_base  optional, e.g. a test server; default https://<data centre of the key>.api.mailchimp.com/3.0
 | mailchimp_timeout   optional, seconds per request (default 10)
+| mailchimp_api_key   optional, for test copies: replaces the API key the pages pass (the live key in their code)
+| mailchimp_list_id   optional, for test copies: replaces the list (audience) ID the pages pass
+|                     Set both in config/development/mailchimp.php to send every call to a test account.
+|                     Production leaves them unset, so the pages' own key and list are used as before.
 */
 $config['mailchimp_enabled'] = TRUE;
