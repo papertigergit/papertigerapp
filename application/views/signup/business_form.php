@@ -242,7 +242,7 @@
 </script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 
- <div id="recaptcha" class="g-recaptcha" data-sitekey="6LeS_CAUAAAAALp9-8JIGXK8p8LdoFgJqIyaWAJg" data-callback="vcc"></div>
+ <div id="recaptcha" class="g-recaptcha" data-sitekey="<?= html_escape(config_item('recaptcha_site_key') ?: '6LeS_CAUAAAAALp9-8JIGXK8p8LdoFgJqIyaWAJg') ?>" data-callback="vcc"></div>
 <span class="msg-error"></span>
 
             
