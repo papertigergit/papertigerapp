@@ -19,6 +19,7 @@ class Postmark {
     var $validation = FALSE;
     var $strip_html = FALSE;
     var $develop = FALSE;
+    var $redirect_to = '';     // test copies only (config/development/postmark.php): every email goes to this address
     
     var $from_name;
     var $from_address;
@@ -269,6 +270,14 @@ class Postmark {
 		
 		if (!is_null($this->_message_plain)) {
 			$data['TextBody'] = $this->_message_plain;
+		}
+		
+		// Test copies only (redirect_to is never set in production): the email goes to that one address instead,
+		// the real recipients are named in the subject, and no copy (Cc) goes to anyone else.
+		if ($this->redirect_to !== '') {
+			$data['Subject'] = '[TEST, for '.$this->_to_address.(is_null($this->_cc_address) ? '' : ', cc '.$this->_cc_address).'] '.$this->_subject;
+			$data['To'] = $this->redirect_to;
+			unset($data['Cc']);
 		}
 		
 		return $data;
