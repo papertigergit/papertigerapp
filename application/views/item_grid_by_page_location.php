@@ -127,7 +127,7 @@
 				  <?php 
 				  if($show_notes->num_rows() > 0) {
 				  if($notes_settings[0][0]['show_notes'] != 0 || $notes_settings[0][0]['show_notes'] == NULL)
-				  {?><td> </td><? }}?>
+				  {?><td> </td><?php }}?>
 				  <td> </td>
 				  <td class="itemCategory"> </td>                                                                                                                                                                                                                                           <td class="itemActionDate"> </td>
 				  <td class="open_row"> <span class="open">OPEN</span> </td>

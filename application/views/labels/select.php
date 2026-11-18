@@ -75,8 +75,8 @@ function chk_template()
 					<option class="preview" value="5267" <?=$enabled?>>Avery File Folder Labels 5267 (Template 8167) <?=$package_text?></option>
 					<option class="preview" value="8167" <?=$enabled?>>Avery File Folder Labels 8167 (Template 8167) <?=$package_text?></option>
 					<option class="preview" value="5160" <?=$enabled?>>Avery File Folder Labels 5160 (Template 8160) <?=$package_text?></option>
-			<!--//		<option class="preview" value="11136" <?//=$enabled?>>Avery File Folder Labels 11136 (Template 11136) <?//=$package_text?></option>  
-					<option class="preview" value="11137" <?//=$enabled?>>Avery File Folder Labels 11137 (Template 11137) <?//=$package_text?></option> -->
+			<!--//		<option class="preview" value="11136" <?php //=$enabled?>>Avery File Folder Labels 11136 (Template 11136) <?php //=$package_text?></option>  
+					<option class="preview" value="11137" <?php //=$enabled?>>Avery File Folder Labels 11137 (Template 11137) <?php //=$package_text?></option> -->
 					<option class="preview" value="5266"  <?=$enabled?>>Avery File Folder Labels 5266 (Template 5066) <?=$package_text?></option>
 					<option class="preview" value="8066"  <?=$enabled?>>Avery File Folder Labels 8066 (Template 5366) <?=$package_text?></option>
 					<option class="preview" value="5066" <?=$enabled?>>Avery File Folder Labels 5066 (Template 5366) <?=$package_text?></option>
